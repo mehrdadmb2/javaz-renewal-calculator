@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت تمدید جواز · ارتش شیراز</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            direction: rtl;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at 20% 30%, #0b0a1a, #03010e);
+            transition: background 0.4s ease;
+            padding: 12px;
+        }
+        body.light {
+            background: radial-gradient(circle at 20% 30%, #e8ecf3, #d0d8e5);
+        }
+
+        /* ----- Light theme overrides ----- */
+        body.light .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(18px);
+            border-color: rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        body.light h1 { color: #1a1a3e; text-shadow: none; }
+        body.light .input-group { background: rgba(255,255,255,0.3); border-color: rgba(0,0,0,0.08); }
+        body.light .input-group label { color: #2a2a4a; }
+        body.light .row label { color: #4a4a6a; }
+        body.light .row select, body.light .row input[type="number"] {
+            background: rgba(255,255,255,0.5); color: #1a1a2e; border-color: rgba(0,0,0,0.12);
+        }
+        body.light .row select option { background: #f0f0f5; color: #1a1a2e; }
+        body.light .settings-group { background: rgba(255,255,255,0.2); border-color: rgba(0,0,0,0.06); }
+        body.light .settings-item { color: #2a2a4a; }
+        body.light .settings-item input[type="number"] {
+            background: rgba(255,255,255,0.4); color: #1a1a2e; border-color: rgba(0,0,0,0.1);
+        }
+        body.light .mode-group { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.08); }
+        body.light .mode-group label { color: #3a3a5a; }
+        body.light .btn-calc {
+            background: linear-gradient(135deg, #5a4a9a, #3a2a6a);
+            color: #e8e0ff;
+            box-shadow: 0 0 20px rgba(80,60,200,0.2);
+        }
+        body.light .btn-calc:hover { background: linear-gradient(135deg, #6a5aaa, #4a3a7a); }
+        body.light .result-box { background: rgba(255,255,255,0.2); border-color: rgba(0,0,0,0.06); }
+        body.light .result-item { color: #3a3a5a; border-bottom-color: rgba(0,0,0,0.04); }
+        body.light .result-item .value { color: #1a1a3e; }
+        body.light .result-total { border-top-color: rgba(80,60,200,0.2); color: #4a3a6a; }
+        body.light .result-total .value { color: #4a3a8a; text-shadow: none; }
+        body.light .date-detail { color: #5a5a7a; border-top-color: rgba(0,0,0,0.06); }
+        body.light .hint { color: #6a6a8a; }
+        body.light .theme-toggle { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); color: #2a2a4a; }
+        body.light .theme-toggle:hover { background: rgba(0,0,0,0.1); }
+        body.light .btn-reset { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); color: #3a3a5a; }
+        body.light .btn-reset:hover { background: rgba(0,0,0,0.1); color: #1a1a3e; }
+        body.light .extra-item { background: rgba(255,255,255,0.2); border-color: rgba(0,0,0,0.06); }
+        body.light .extra-item input { background: rgba(255,255,255,0.4); color: #1a1a2e; border-color: rgba(0,0,0,0.1); }
+        body.light .extra-item .btn-del { color: #a04040; }
+
+        /* ----- Main Card ----- */
+        .glass-card {
+            width: 100%;
+            max-width: 720px;
+            height: 100%;
+            max-height: 780px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(8, 6, 22, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 40px;
+            padding: 18px 22px;
+            border: 1px solid rgba(0, 255, 255, 0.12);
+            box-shadow: 0 0 40px rgba(0, 200, 255, 0.06), 0 0 80px rgba(100, 0, 255, 0.04);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        /* ----- Header with gun icon ----- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+            margin-bottom: 8px;
+            gap: 8px;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .gun-icon {
+            font-size: 1.8rem;
+            filter: drop-shadow(0 0 12px rgba(0, 200, 255, 0.3));
+            line-height: 1;
+        }
+        h1 {
+            color: #b7b0ff;
+            font-weight: 700;
+            font-size: clamp(1.1rem, 3.2vw, 1.6rem);
+            text-shadow: 0 0 20px rgba(120, 80, 255, 0.3);
+            letter-spacing: -0.3px;
+        }
+        .subtitle {
+            color: #7a8aaa;
+            font-size: 0.65rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            text-shadow: 0 0 10px rgba(0,200,255,0.05);
+        }
+        .theme-toggle {
+            background: rgba(0, 200, 255, 0.06);
+            border: 1px solid rgba(0, 255, 255, 0.12);
+            border-radius: 40px;
+            padding: 5px 12px;
+            color: #8af0ff;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.25s;
+            font-family: inherit;
+        }
+        .theme-toggle:hover {
+            background: rgba(0, 200, 255, 0.15);
+            box-shadow: 0 0 20px rgba(0, 200, 255, 0.1);
+        }
+
+        /* ----- Scrollable content ----- */
+        .scroll-content {
+            flex: 1 1 auto;
+            overflow-y: auto;
+            padding-right: 4px;
+            margin-right: -4px;
+            min-height: 0;
+        }
+        .scroll-content::-webkit-scrollbar {
+            width: 4px;
+        }
+        .scroll-content::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.02);
+        }
+        .scroll-content::-webkit-scrollbar-thumb {
+            background: rgba(0,200,255,0.15);
+            border-radius: 10px;
+        }
+
+        /* ----- Input groups ----- */
+        .input-group {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 18px;
+            padding: 10px 14px 12px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.06);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+            transition: 0.2s;
+        }
+        .input-group:hover {
+            border-color: rgba(0, 200, 255, 0.12);
+        }
+        .input-group label {
+            display: block;
+            color: #aab4ff;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+            letter-spacing: 0.3px;
+        }
+        .row {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .row label {
+            margin-bottom: 0;
+            color: #7a84b0;
+            font-size: 0.7rem;
+        }
+        .row select,
+        .row input[type="number"] {
+            flex: 1;
+            min-width: 45px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 5px 6px;
+            color: #d0daff;
+            font-size: 0.8rem;
+            font-family: inherit;
+            outline: none;
+            transition: 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+        .row select:focus,
+        .row input[type="number"]:focus {
+            border-color: #7a8cff;
+            box-shadow: 0 0 12px rgba(80, 120, 255, 0.12);
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .row select option {
+            background: #0b0a1a;
+            color: #d0daff;
+        }
+        .btn-reset {
+            background: rgba(0, 255, 255, 0.04);
+            border: 1px solid rgba(0, 255, 255, 0.08);
+            color: #7ad0ff;
+            padding: 3px 12px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.65rem;
+            transition: 0.2s;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+        .btn-reset:hover {
+            background: rgba(0, 255, 255, 0.1);
+            color: #b0f0ff;
+        }
+        .hint {
+            color: #5a6a8a;
+            font-size: 0.55rem;
+            margin-top: 3px;
+            text-align: left;
+        }
+
+        /* Settings */
+        .settings-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 14px;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.04);
+        }
+        .settings-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #aab4ff;
+            font-size: 0.7rem;
+            flex: 1 1 auto;
+        }
+        .settings-item input[type="number"] {
+            width: 65px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 3px 6px;
+            color: #d0daff;
+            font-size: 0.75rem;
+            outline: none;
+            font-family: inherit;
+        }
+        .settings-item input[type="number"]:focus {
+            border-color: #7a8cff;
+            box-shadow: 0 0 10px rgba(80, 120, 255, 0.08);
+        }
+        .settings-item input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            accent-color: #7a8cff;
+            cursor: pointer;
+        }
+
+        /* Mode */
+        .mode-group {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            padding: 4px 12px;
+            background: rgba(0, 200, 255, 0.02);
+            border-radius: 30px;
+            border: 1px solid rgba(0, 200, 255, 0.06);
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        .mode-group label {
+            color: #8a9ad0;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+        .mode-group input[type="radio"] {
+            accent-color: #7a8cff;
+            width: 13px;
+            height: 13px;
+        }
+
+        /* ----- Extra Fees Section ----- */
+        .extra-section {
+            margin-bottom: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 8px 10px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .extra-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        .extra-header label {
+            color: #aab4ff;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .btn-add-extra {
+            background: rgba(0, 200, 255, 0.06);
+            border: 1px solid rgba(0, 255, 255, 0.08);
+            color: #7ad0ff;
+            padding: 2px 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.65rem;
+            transition: 0.2s;
+            font-family: inherit;
+        }
+        .btn-add-extra:hover {
+            background: rgba(0, 200, 255, 0.12);
+        }
+        .extra-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+        .extra-list::-webkit-scrollbar { width: 3px; }
+        .extra-list::-webkit-scrollbar-thumb { background: rgba(0,200,255,0.15); border-radius: 10px; }
+        .extra-item {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 4px 8px;
+            border: 1px solid rgba(0, 255, 255, 0.04);
+        }
+        .extra-item input[type="text"] {
+            flex: 2;
+            min-width: 60px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 3px 6px;
+            color: #d0daff;
+            font-size: 0.7rem;
+            outline: none;
+            font-family: inherit;
+        }
+        .extra-item input[type="number"] {
+            flex: 1;
+            min-width: 50px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 3px 6px;
+            color: #d0daff;
+            font-size: 0.7rem;
+            outline: none;
+            font-family: inherit;
+        }
+        .extra-item input:focus {
+            border-color: #7a8cff;
+            box-shadow: 0 0 8px rgba(80, 120, 255, 0.08);
+        }
+        .extra-item .btn-del {
+            background: none;
+            border: none;
+            color: #c06060;
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 0 4px;
+            transition: 0.2s;
+        }
+        .extra-item .btn-del:hover {
+            color: #ff8080;
+            transform: scale(1.2);
+        }
+
+        /* Button */
+        .btn-calc {
+            width: 100%;
+            background: linear-gradient(135deg, #4a3a8a, #2a1a5a);
+            border: none;
+            border-radius: 28px;
+            padding: 9px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #c8c0ff;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(100, 60, 255, 0.08);
+            font-family: inherit;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(120, 100, 255, 0.12);
+            flex-shrink: 0;
+            margin-bottom: 8px;
+        }
+        .btn-calc:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(100, 60, 255, 0.18);
+            background: linear-gradient(135deg, #5a4a9a, #3a2a6a);
+        }
+        .btn-calc:active { transform: scale(0.97); }
+
+        /* Results */
+        .result-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 18px;
+            padding: 12px 14px;
+            border: 1px solid rgba(0, 255, 255, 0.04);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px 0;
+            color: #9aa8d8;
+            font-size: 0.8rem;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.03);
+        }
+        .result-item:last-of-type { border-bottom: none; }
+        .result-item .value {
+            font-weight: 500;
+            color: #d0daff;
+            text-shadow: 0 0 8px rgba(100, 150, 255, 0.05);
+        }
+        .result-total {
+            margin-top: 6px;
+            padding-top: 8px;
+            border-top: 2px solid rgba(100, 120, 255, 0.15);
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #b7b0ff;
+        }
+        .result-total .value {
+            color: #8af0ff;
+            font-size: 1.2rem;
+            text-shadow: 0 0 20px rgba(0, 200, 255, 0.12);
+        }
+        .date-detail {
+            font-size: 0.55rem;
+            color: #5a6a8a;
+            text-align: left;
+            margin-top: 4px;
+            border-top: 1px solid rgba(0, 255, 255, 0.03);
+            padding-top: 4px;
+        }
+        #approxRow { display: none; }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .glass-card { padding: 10px 10px; max-height: 100vh; border-radius: 24px; }
+            .input-group { padding: 6px 8px; margin-bottom: 6px; }
+            .row select, .row input[type="number"] { min-width: 35px; padding: 3px 4px; font-size: 0.7rem; }
+            .settings-group { padding: 4px 8px; gap: 4px 6px; }
+            .settings-item { font-size: 0.65rem; }
+            .settings-item input[type="number"] { width: 55px; }
+            .mode-group { gap: 6px; padding: 3px 8px; }
+            .mode-group label { font-size: 0.65rem; }
+            .btn-calc { padding: 7px; font-size: 0.85rem; }
+            .result-box { padding: 8px 10px; }
+            .result-item { font-size: 0.7rem; }
+            .result-total { font-size: 0.95rem; }
+            .result-total .value { font-size: 1.05rem; }
+            h1 { font-size: 1.1rem; }
+            .gun-icon { font-size: 1.4rem; }
+            .extra-item input[type="text"] { font-size: 0.65rem; }
+            .extra-item input[type="number"] { font-size: 0.65rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="glass-card">
+    <div class="header">
+        <div class="header-left">
+            <span class="gun-icon">🔫</span>
+            <div>
+                <h1>تمدید جواز · ارتش شیراز</h1>
+                <div class="subtitle">مدیریت اسلحه و مهمات</div>
+            </div>
+        </div>
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+    </div>
+
+    <div class="scroll-content">
+        <!-- تاریخ انقضا -->
+        <div class="input-group" title="تاریخ انقضای مندرج روی کارت جواز">
+            <label>📅 تاریخ انقضای جواز</label>
+            <div class="row">
+                <label>سال</label><select id="expYear"></select>
+                <label>ماه</label><select id="expMonth"></select>
+                <label>روز</label><select id="expDay"></select>
+            </div>
+            <div class="hint" id="expDateHint"></div>
+        </div>
+
+        <!-- تاریخ جاری -->
+        <div class="input-group" title="تاریخ امروز (قابل ویرایش)">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <label>📆 تاریخ روز جاری</label>
+                <button class="btn-reset" id="resetTodayBtn">↻ بازیابی خودکار</button>
+            </div>
+            <div class="row">
+                <label>سال</label><select id="curYear"></select>
+                <label>ماه</label><select id="curMonth"></select>
+                <label>روز</label><select id="curDay"></select>
+            </div>
+            <div class="hint" id="todayHint"></div>
+        </div>
+
+        <!-- تنظیمات هزینه -->
+        <div class="settings-group">
+            <div class="settings-item" title="جریمه به ازای هر ماه کامل">
+                <label>جریمه هر ماه (تومان)</label>
+                <input type="number" id="fineRate" value="10000" min="0" step="1000">
+            </div>
+            <div class="settings-item" title="هزینه ثابت تمدید">
+                <label>هزینه تمدید</label>
+                <input type="number" id="renewalFee" value="225000" min="0" step="5000">
+            </div>
+            <div class="settings-item" title="نیاز به تمدید؟">
+                <input type="checkbox" id="needRenewal" checked>
+                <label>تمدید</label>
+            </div>
+        </div>
+
+        <!-- حالت محاسبه -->
+        <div class="mode-group">
+            <label><input type="radio" name="calcMode" value="exact" checked> دقیق (ماه‌های کامل)</label>
+            <label><input type="radio" name="calcMode" value="approx"> تقریبی (با کسر روز)</label>
+        </div>
+
+        <!-- هزینه‌های اضافی -->
+        <div class="extra-section">
+            <div class="extra-header">
+                <label>💰 هزینه‌های اضافی (مثلاً انتقال تفنگ)</label>
+                <button class="btn-add-extra" id="addExtraBtn">+ افزودن</button>
+            </div>
+            <div class="extra-list" id="extraList">
+                <!-- ردیف‌ها به‌صورت داینامیک اضافه می‌شوند -->
+            </div>
+        </div>
+
+        <!-- دکمه محاسبه -->
+        <button class="btn-calc" id="calcBtn">✨ محاسبه نئونی</button>
+
+        <!-- نتایج -->
+        <div class="result-box" id="resultBox">
+            <div class="result-item"><span>ماه‌های کامل دیرکرد</span><span class="value" id="monthsOverdue">-</span></div>
+            <div class="result-item"><span>جریمه ماه‌های کامل</span><span class="value" id="fineFull">-</span></div>
+            <div id="approxRow" class="result-item"><span>کسر روز (تقریبی)</span><span class="value" id="finePartial">-</span></div>
+            <div class="result-item"><span>هزینه تمدید</span><span class="value" id="renewalAmount">-</span></div>
+            <div id="extraTotalRow" class="result-item"><span>هزینه‌های اضافی</span><span class="value" id="extraTotal">-</span></div>
+            <div class="result-total"><span>جمع کل قابل پرداخت</span><span class="value" id="totalAmount">-</span></div>
+            <div class="date-detail" id="dateDetail"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // ---------- تبدیل میلادی به شمسی ----------
+    function gregorianToJalali(gy, gm, gd) {
+        const g_d_m = [0,31,59,90,120,151,181,212,243,273,304,334];
+        let jy, days;
+        if (gy > 1600) { jy = 979; gy -= 1600; } else { jy = 0; gy -= 621; }
+        const gy2 = (gm > 2) ? gy + 1 : gy;
+        days = 365*gy + Math.floor((gy2+3)/4) - Math.floor((gy2+99)/100) + Math.floor((gy2+399)/400) - 80 + gd + g_d_m[gm-1];
+        jy += 33 * Math.floor(days/12053);
+        days %= 12053;
+        jy += 4 * Math.floor(days/1461);
+        days %= 1461;
+        let jm, jd;
+        if (days > 365) { jy += Math.floor((days-1)/365); days = (days-1)%365; }
+        if (days < 186) { jm = 1 + Math.floor(days/31); jd = 1 + (days%31); }
+        else { jm = 7 + Math.floor((days-186)/30); jd = 1 + ((days-186)%30); }
+        return [jy, jm, jd];
+    }
+
+    function jalaliWeekday(gy, gm, gd) {
+        const weekdays = ['یک‌شنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنج‌شنبه','جمعه','شنبه'];
+        const d = new Date(gy, gm-1, gd);
+        return weekdays[d.getDay()];
+    }
+
+    const monthNames = ["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"];
+
+    function daysInJalaliMonth(jy, jm) {
+        if (jm <= 6) return 31;
+        if (jm <= 11) return 30;
+        const leap = (jy % 33 === 1 || jy % 33 === 5 || jy % 33 === 9 || jy % 33 === 13 ||
+                      jy % 33 === 17 || jy % 33 === 22 || jy % 33 === 26 || jy % 33 === 30);
+        return leap ? 30 : 29;
+    }
+
+    // ---------- پر کردن سلکت‌ها ----------
+    function populateSelects() {
+        const years = Array.from({length: 27}, (_,i) => 1385 + i);
+        ['expYear','curYear'].forEach(id => {
+            const sel = document.getElementById(id);
+            sel.innerHTML = years.map(y => `<option value="${y}">${y}</option>`).join('');
+        });
+        ['expMonth','curMonth'].forEach(id => {
+            const sel = document.getElementById(id);
+            sel.innerHTML = monthNames.map((n,i) => `<option value="${i+1}">${i+1} - ${n}</option>`).join('');
+        });
+        ['expDay','curDay'].forEach(id => {
+            const sel = document.getElementById(id);
+            sel.innerHTML = Array.from({length:31}, (_,i) => `<option value="${i+1}">${i+1}</option>`).join('');
+        });
+    }
+
+    function updateDays(selYear, selMonth, selDay) {
+        const year = parseInt(selYear.value), month = parseInt(selMonth.value);
+        if (!year || !month) return;
+        const max = daysInJalaliMonth(year, month);
+        const cur = parseInt(selDay.value) || 1;
+        selDay.innerHTML = Array.from({length: max}, (_,i) => `<option value="${i+1}">${i+1}</option>`).join('');
+        if (cur <= max) selDay.value = cur;
+        else selDay.value = max;
+    }
+
+    function getTodayJalali() {
+        const now = new Date();
+        return gregorianToJalali(now.getFullYear(), now.getMonth()+1, now.getDate());
+    }
+
+    function setCurrentDateFromSystem() {
+        const [jy, jm, jd] = getTodayJalali();
+        const curYear = document.getElementById('curYear');
+        const curMonth = document.getElementById('curMonth');
+        const curDay = document.getElementById('curDay');
+        curYear.value = jy; curMonth.value = jm;
+        updateDays(curYear, curMonth, curDay);
+        curDay.value = jd;
+        document.getElementById('todayHint').textContent =
+            `(سیستم: ${jd} ${monthNames[jm-1]} ${jy} – قابل ویرایش)`;
+    }
+
+    function setDefaultExpiry() {
+        const [jy, jm] = getTodayJalali();
+        const expYear = document.getElementById('expYear');
+        const expMonth = document.getElementById('expMonth');
+        const expDay = document.getElementById('expDay');
+        expYear.value = jy - 1; expMonth.value = 7;
+        updateDays(expYear, expMonth, expDay);
+        expDay.value = 1;
+        document.getElementById('expDateHint').textContent = '(پیش‌فرض: یک سال قبل)';
+    }
+
+    // ---------- مدیریت هزینه‌های اضافی ----------
+    let extraItems = [];
+
+    function renderExtraItems() {
+        const container = document.getElementById('extraList');
+        container.innerHTML = '';
+        extraItems.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'extra-item';
+            div.innerHTML = `
+                <input type="text" placeholder="عنوان هزینه" value="${item.title}" data-idx="${index}" class="extra-title">
+                <input type="number" placeholder="مبلغ" value="${item.amount}" data-idx="${index}" class="extra-amount" min="0" step="1000">
+                <button class="btn-del" data-idx="${index}">✕</button>
+            `;
+            container.appendChild(div);
+        });
+        // رویدادها
+        container.querySelectorAll('.extra-title').forEach(inp => {
+            inp.addEventListener('input', function() {
+                const idx = parseInt(this.dataset.idx);
+                extraItems[idx].title = this.value;
+                saveSettings();
+            });
+        });
+        container.querySelectorAll('.extra-amount').forEach(inp => {
+            inp.addEventListener('input', function() {
+                const idx = parseInt(this.dataset.idx);
+                extraItems[idx].amount = parseInt(this.value) || 0;
+                saveSettings();
+            });
+        });
+        container.querySelectorAll('.btn-del').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const idx = parseInt(this.dataset.idx);
+                extraItems.splice(idx, 1);
+                renderExtraItems();
+                saveSettings();
+                calculate();
+            });
+        });
+    }
+
+    function addExtraItem(title = '', amount = 0) {
+        extraItems.push({ title: title || 'هزینه اضافی', amount: amount });
+        renderExtraItems();
+        saveSettings();
+    }
+
+    function getExtraTotal() {
+        return extraItems.reduce((sum, item) => sum + (parseInt(item.amount) || 0), 0);
+    }
+
+    // ---------- ذخیره/بارگیری ----------
+    function saveSettings() {
+        const data = {
+            expYear: document.getElementById('expYear').value,
+            expMonth: document.getElementById('expMonth').value,
+            expDay: document.getElementById('expDay').value,
+            curYear: document.getElementById('curYear').value,
+            curMonth: document.getElementById('curMonth').value,
+            curDay: document.getElementById('curDay').value,
+            fineRate: document.getElementById('fineRate').value,
+            renewalFee: document.getElementById('renewalFee').value,
+            needRenewal: document.getElementById('needRenewal').checked,
+            mode: document.querySelector('input[name="calcMode"]:checked').value,
+            extras: extraItems.map(item => ({ title: item.title, amount: item.amount }))
+        };
+        try { localStorage.setItem('javaz_army', JSON.stringify(data)); } catch(e) {}
+    }
+
+    function loadSettings() {
+        try {
+            const raw = localStorage.getItem('javaz_army');
+            if (!raw) return false;
+            const data = JSON.parse(raw);
+            const expY = document.getElementById('expYear'), expM = document.getElementById('expMonth'), expD = document.getElementById('expDay');
+            const curY = document.getElementById('curYear'), curM = document.getElementById('curMonth'), curD = document.getElementById('curDay');
+            if (data.expYear && data.expMonth && data.expDay) {
+                expY.value = data.expYear; expM.value = data.expMonth;
+                updateDays(expY, expM, expD);
+                expD.value = data.expDay;
+            }
+            if (data.curYear && data.curMonth && data.curDay) {
+                curY.value = data.curYear; curM.value = data.curMonth;
+                updateDays(curY, curM, curD);
+                curD.value = data.curDay;
+            }
+            if (data.fineRate) document.getElementById('fineRate').value = data.fineRate;
+            if (data.renewalFee) document.getElementById('renewalFee').value = data.renewalFee;
+            if (data.needRenewal !== undefined) document.getElementById('needRenewal').checked = data.needRenewal;
+            if (data.mode) {
+                document.querySelector(`input[name="calcMode"][value="${data.mode}"]`).checked = true;
+            }
+            if (data.extras && Array.isArray(data.extras)) {
+                extraItems = data.extras.map(e => ({ title: e.title || 'هزینه اضافی', amount: parseInt(e.amount) || 0 }));
+                renderExtraItems();
+            }
+            return true;
+        } catch(e) { return false; }
+    }
+
+    // ---------- محاسبه ----------
+    function calculate() {
+        const expY = parseInt(document.getElementById('expYear').value);
+        const expM = parseInt(document.getElementById('expMonth').value);
+        const expD = parseInt(document.getElementById('expDay').value);
+        const curY = parseInt(document.getElementById('curYear').value);
+        const curM = parseInt(document.getElementById('curMonth').value);
+        const curD = parseInt(document.getElementById('curDay').value);
+        const fineRate = parseInt(document.getElementById('fineRate').value) || 0;
+        const renewalFee = parseInt(document.getElementById('renewalFee').value) || 0;
+        const needRenewal = document.getElementById('needRenewal').checked;
+        const mode = document.querySelector('input[name="calcMode"]:checked').value;
+
+        if ([expY, expM, expD, curY, curM, curD].some(isNaN)) {
+            alert('لطفاً تاریخ‌ها را به‌درستی انتخاب کنید.');
+            return;
+        }
+
+        let monthsDiff = (curY - expY) * 12 + (curM - expM);
+        let daysDiff = curD - expD;
+        let fullMonths = Math.max(0, monthsDiff);
+        let partialDays = 0;
+
+        if (daysDiff < 0 && monthsDiff > 0) {
+            fullMonths -= 1;
+            const prevMonth = (curM - 1 + 12) % 12 || 12;
+            const prevYear = curY - (curM === 1 ? 1 : 0);
+            const daysInPrevMonth = daysInJalaliMonth(prevYear, prevMonth);
+            partialDays = daysInPrevMonth - expD + curD;
+        } else if (daysDiff >= 0 && monthsDiff >= 0) {
+            partialDays = daysDiff;
+        } else {
+            fullMonths = 0;
+            partialDays = 0;
+        }
+
+        let fine = 0, finePartial = 0, total = 0;
+
+        if (mode === 'exact') {
+            fine = fullMonths * fineRate;
+            if (fullMonths < 0) fullMonths = 0;
+            document.getElementById('monthsOverdue').textContent = fullMonths + ' ماه';
+            document.getElementById('fineFull').textContent = fine.toLocaleString() + ' تومان';
+            document.getElementById('approxRow').style.display = 'none';
+        } else {
+            const daysInCurrentMonth = daysInJalaliMonth(curY, curM);
+            const fraction = partialDays / daysInCurrentMonth;
+            fine = fullMonths * fineRate;
+            finePartial = Math.round(fraction * fineRate);
+            const totalFine = fine + finePartial;
+            document.getElementById('monthsOverdue').textContent = (fullMonths + fraction).toFixed(2) + ' ماه';
+            document.getElementById('fineFull').textContent = fine.toLocaleString() + ' تومان';
+            document.getElementById('finePartial').textContent = finePartial.toLocaleString() + ' تومان';
+            document.getElementById('approxRow').style.display = 'flex';
+            fine = totalFine;
+        }
+
+        let renewalText = 'نیاز نیست';
+        total = fine;
+        if (needRenewal) {
+            total += renewalFee;
+            renewalText = renewalFee.toLocaleString() + ' تومان';
+        }
+        document.getElementById('renewalAmount').textContent = renewalText;
+
+        // هزینه‌های اضافی
+        const extraTotal = getExtraTotal();
+        document.getElementById('extraTotal').textContent = extraTotal > 0 ? extraTotal.toLocaleString() + ' تومان' : 'هیچ';
+        total += extraTotal;
+
+        document.getElementById('totalAmount').textContent = total.toLocaleString() + ' تومان';
+
+        const today = new Date();
+        const weekDayNow = jalaliWeekday(today.getFullYear(), today.getMonth()+1, today.getDate());
+        const expDateStr = `${expD} ${monthNames[expM-1]} ${expY}`;
+        const curDateStr = `${curD} ${monthNames[curM-1]} ${curY}`;
+        document.getElementById('dateDetail').textContent =
+            `انقضا: ${expDateStr}  |  جاری: ${curDateStr}  |  امروز: ${weekDayNow} ${curD} ${monthNames[curM-1]} ${curY}`;
+
+        saveSettings();
+    }
+
+    // ---------- راه‌اندازی ----------
+    function init() {
+        populateSelects();
+        const loaded = loadSettings();
+        if (!loaded) {
+            setDefaultExpiry();
+            setCurrentDateFromSystem();
+            // یک نمونه هزینه اضافی پیش‌فرض
+            addExtraItem('هزینه انتقال تفنگ', 0);
+        } else {
+            const expY = document.getElementById('expYear'), expM = document.getElementById('expMonth'), expD = document.getElementById('expDay');
+            const curY = document.getElementById('curYear'), curM = document.getElementById('curMonth'), curD = document.getElementById('curDay');
+            updateDays(expY, expM, expD);
+            updateDays(curY, curM, curD);
+            document.getElementById('todayHint').textContent = '(آخرین مقدار ذخیره‌شده)';
+            document.getElementById('expDateHint').textContent = '(آخرین مقدار ذخیره‌شده)';
+        }
+
+        // رویدادهای تغییر روز
+        document.getElementById('expYear').addEventListener('change', function() {
+            updateDays(this, document.getElementById('expMonth'), document.getElementById('expDay'));
+        });
+        document.getElementById('expMonth').addEventListener('change', function() {
+            updateDays(document.getElementById('expYear'), this, document.getElementById('expDay'));
+        });
+        document.getElementById('curYear').addEventListener('change', function() {
+            updateDays(this, document.getElementById('curMonth'), document.getElementById('curDay'));
+        });
+        document.getElementById('curMonth').addEventListener('change', function() {
+            updateDays(document.getElementById('curYear'), this, document.getElementById('curDay'));
+        });
+
+        document.getElementById('resetTodayBtn').addEventListener('click', function() {
+            setCurrentDateFromSystem();
+            saveSettings();
+            calculate();
+        });
+
+        document.getElementById('calcBtn').addEventListener('click', calculate);
+
+        // دکمه افزودن هزینه اضافی
+        document.getElementById('addExtraBtn').addEventListener('click', function() {
+            addExtraItem('هزینه جدید', 0);
+            calculate();
+        });
+
+        // دکمه تم
+        const toggle = document.getElementById('themeToggle');
+        toggle.addEventListener('click', function() {
+            document.body.classList.toggle('light');
+            this.textContent = document.body.classList.contains('light') ? '🌓' : '🌙';
+        });
+
+        // ذخیره خودکار
+        document.querySelectorAll('select, input').forEach(el => {
+            el.addEventListener('change', saveSettings);
+        });
+
+        calculate();
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+})();
+</script>
+</body>
+</html>
