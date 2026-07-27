@@ -81,7 +81,7 @@
         }
 
         /* ================================================================
-                   HEADER
+                   HEADER — ساختار جدولی برای چاپ دقیق
                    ================================================================ */
         .header {
             display: flex;
@@ -206,7 +206,6 @@
             padding: 0 6px;
         }
 
-        /* ===== بسمه تعالی با اندازه کوچک‌تر ===== */
         .bismillah {
             font-size: 1rem;
             font-weight: 700;
@@ -236,7 +235,7 @@
             text-shadow: none;
         }
 
-        /* ===== MAIN TEXT ===== */
+        /* ===== MAIN TEXT — دقیقاً شبیه فایل ورد ===== */
         .main-text {
             font-size: 0.95rem;
             line-height: 2.6;
@@ -301,6 +300,9 @@
         .input-inline input.date {
             width: 100px;
         }
+        .input-inline input.rank {
+            width: 120px;
+        }
 
         body.light .input-inline input {
             color: #1a1a2e;
@@ -316,7 +318,7 @@
             display: none;
         }
 
-        /* ===== SIGNATURE ===== */
+        /* ===== SIGNATURE — دقیقاً شبیه فایل ورد ===== */
         .signature-box {
             margin-top: 14px;
             border-top: 2px dashed rgba(0, 255, 255, 0.08);
@@ -360,7 +362,7 @@
             color: #1a1a2e;
         }
 
-        /* ===== PRESENCE ===== */
+        /* ===== PRESENCE — یک خط ===== */
         .presence-row {
             margin-top: 14px;
             padding: 6px 0;
@@ -496,7 +498,7 @@
         }
 
         /* ================================================================
-                   PRINT STYLES — کاملاً یک‌خطی برای حضور در یگان
+                   PRINT STYLES — دقیقاً شبیه فایل ورد
                    ================================================================ */
         @media print {
             @page {
@@ -534,7 +536,7 @@
                 display: none !important;
             }
 
-            /* ===== هدر با جدول ===== */
+            /* ===== هدر با جدول — دقیقاً شبیه ورد ===== */
             .header {
                 display: table !important;
                 width: 100% !important;
@@ -559,8 +561,8 @@
                 display: block !important;
                 border: none !important;
                 background: transparent !important;
-                width: 80px !important;
-                height: 80px !important;
+                width: 75px !important;
+                height: 75px !important;
                 margin: 0 auto !important;
                 padding: 0 !important;
                 cursor: default !important;
@@ -568,8 +570,8 @@
 
             .logo-container .logo-preview img {
                 display: block !important;
-                max-width: 80px !important;
-                max-height: 80px !important;
+                max-width: 75px !important;
+                max-height: 75px !important;
                 margin: 0 auto !important;
             }
 
@@ -581,7 +583,6 @@
                 padding: 0 10px !important;
             }
 
-            /* ===== بسمه تعالی کوچک‌تر در چاپ ===== */
             .bismillah {
                 font-size: 0.95rem !important;
                 color: #000 !important;
@@ -600,7 +601,7 @@
                 margin: 2px 0 !important;
             }
 
-            /* ===== متن اصلی ===== */
+            /* ===== متن اصلی — دقیقاً شبیه ورد ===== */
             .main-text {
                 font-size: 0.9rem !important;
                 line-height: 2.4 !important;
@@ -647,8 +648,11 @@
             .print-value.date {
                 min-width: 70px !important;
             }
+            .print-value.rank {
+                min-width: 90px !important;
+            }
 
-            /* ===== امضاها در دو خط جداگانه ===== */
+            /* ===== امضاها — دقیقاً شبیه ورد ===== */
             .signature-box {
                 margin-top: 14px !important;
                 border-top: 2px dashed #555 !important;
@@ -679,7 +683,7 @@
                 min-height: 26px !important;
             }
 
-            /* ===== حضور در یگان — کاملاً یک خط ===== */
+            /* ===== حضور در یگان — یک خط ===== */
             .presence-row {
                 margin-top: 12px !important;
                 padding: 5px 0 !important;
@@ -688,7 +692,6 @@
                 border-top: 1px solid #aaa !important;
                 padding-top: 10px !important;
                 display: block !important;
-                /* تغییر از flex به block */
                 width: 100% !important;
                 white-space: nowrap !important;
                 overflow: hidden !important;
@@ -808,6 +811,9 @@
             .input-inline input.date {
                 width: 80px;
             }
+            .input-inline input.rank {
+                width: 90px;
+            }
 
             .signature-box {
                 flex-direction: column;
@@ -843,6 +849,9 @@
                 width: 90px;
             }
             .input-inline input.large {
+                width: 70px;
+            }
+            .input-inline input.rank {
                 width: 70px;
             }
 
@@ -891,7 +900,7 @@
         </div>
     </div>
 
-    <!-- ===== MAIN TEXT ===== -->
+    <!-- ===== MAIN TEXT — دقیقاً شبیه فایل ورد با اضافه شدن درجه ===== -->
     <div class="main-text">
 
         <div style="margin-bottom:2px;">
@@ -900,6 +909,12 @@
                 <span class="input-inline">
                     <input type="text" id="fullName" value="محمد رضا بهروزی" class="xlarge">
                     <span class="print-value xlarge">محمد رضا بهروزی</span>
+                </span>
+            </span>
+            <span class="highlight">
+                <span class="input-inline">
+                    <input type="text" id="rank" value="ستوان سوم وظیفه" class="rank">
+                    <span class="print-value rank">ستوان سوم وظیفه</span>
                 </span>
             </span>
             <span class="highlight">
@@ -964,7 +979,7 @@
         </div>
     </div>
 
-    <!-- ===== SIGNATURE ===== -->
+    <!-- ===== SIGNATURE — دقیقاً شبیه فایل ورد ===== -->
     <div class="signature-box">
         <div class="signature-item">
             <div class="label">امضا قسمت مربوطه</div>
@@ -976,7 +991,7 @@
         </div>
     </div>
 
-    <!-- ===== PRESENCE ===== -->
+    <!-- ===== PRESENCE — یک خط ===== -->
     <div class="presence-row">
         <span class="label">حضور در یگان :</span>
         <span>ساعت</span>
@@ -1071,6 +1086,7 @@
                 if (inp.classList.contains('large')) span.classList.add('large');
                 if (inp.classList.contains('xlarge')) span.classList.add('xlarge');
                 if (inp.classList.contains('date')) span.classList.add('date');
+                if (inp.classList.contains('rank')) span.classList.add('rank');
                 inp.parentNode.insertBefore(span, inp.nextSibling);
             }
             span.textContent = inp.value;
@@ -1090,6 +1106,7 @@
                 if (inp.classList.contains('large')) span.classList.add('large');
                 if (inp.classList.contains('xlarge')) span.classList.add('xlarge');
                 if (inp.classList.contains('date')) span.classList.add('date');
+                if (inp.classList.contains('rank')) span.classList.add('rank');
                 inp.parentNode.insertBefore(span, inp.nextSibling);
             }
             span.textContent = inp.value;
@@ -1099,6 +1116,7 @@
     // ===== بازنشانی =====
     function resetDefaults() {
         document.getElementById('fullName').value = 'محمد رضا بهروزی';
+        document.getElementById('rank').value = 'ستوان سوم وظیفه';
         document.getElementById('position').value = 'جمعی حفا ارشد (مدیریت اسلحه و مهمات)';
         document.getElementById('startTime').value = '۰۸:۰۰';
         document.getElementById('startDate').value = '۱۴۰۴/۰۱/۰۱';
