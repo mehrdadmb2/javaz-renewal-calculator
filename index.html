@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ابزارهای مدیریت اسلحه و مهمات · ارتش شیراز</title>
+
+    <!-- ===== Font & Icons ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at 20% 30%, #0b0a1a, #03010e);
+            font-family: 'Segoe UI', 'Tahoma', sans-serif;
+            direction: rtl;
+            padding: 20px;
+            transition: background 0.4s ease;
+        }
+
+        body.light {
+            background: radial-gradient(circle at 20% 30%, #e8ecf3, #d0d8e5);
+        }
+
+        /* ===== GLASS CARD ===== */
+        .glass-card {
+            width: 100%;
+            max-width: 820px;
+            background: rgba(8, 6, 22, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 40px;
+            padding: 32px 30px 26px;
+            border: 1px solid rgba(0, 255, 255, 0.08);
+            box-shadow: 0 0 40px rgba(0, 200, 255, 0.04), 0 0 80px rgba(100, 0, 255, 0.03);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        body.light .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(18px);
+            border-color: rgba(0, 0, 0, 0.06);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        /* ===== THEME TOGGLE ===== */
+        .theme-toggle {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            background: rgba(0, 200, 255, 0.06);
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: 4px 14px;
+            color: #8af0ff;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: 0.25s;
+            font-family: inherit;
+            z-index: 10;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(0, 200, 255, 0.12);
+        }
+
+        body.light .theme-toggle {
+            background: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #2a2a4a;
+        }
+
+        body.light .theme-toggle:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            text-align: center;
+            border-bottom: 3px solid rgba(0, 255, 255, 0.08);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        body.light .header {
+            border-bottom-color: #1a3a5c;
+        }
+
+        .header .icon {
+            font-size: 2.8rem;
+            filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.15));
+            margin-bottom: 4px;
+        }
+
+        .header h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #c8c0ff;
+            text-shadow: 0 0 30px rgba(120, 80, 255, 0.1);
+            letter-spacing: 0.5px;
+        }
+
+        .header .sub {
+            font-size: 0.85rem;
+            color: #7a8aaa;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        body.light .header h1 {
+            color: #1a1a3e;
+            text-shadow: none;
+        }
+
+        body.light .header .sub {
+            color: #4a4a6a;
+        }
+
+        /* ===== TOOLS GRID ===== */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 255, 0.06);
+            border-radius: 24px;
+            padding: 22px 20px 20px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .tool-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 200, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 200, 255, 0.05);
+        }
+
+        body.light .tool-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(0, 0, 0, 0.06);
+        }
+
+        body.light .tool-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .tool-card .emoji {
+            font-size: 2.6rem;
+            display: block;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.08));
+        }
+
+        .tool-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #d0daff;
+            margin-bottom: 4px;
+        }
+
+        .tool-card p {
+            font-size: 0.8rem;
+            color: #7a8aaa;
+            line-height: 1.5;
+        }
+
+        body.light .tool-card h3 {
+            color: #1a1a3e;
+        }
+
+        body.light .tool-card p {
+            color: #4a4a6a;
+        }
+
+        /* ===== OFFLINE BUTTON ===== */
+        .offline-section {
+            border-top: 1px solid rgba(0, 255, 255, 0.06);
+            padding-top: 18px;
+            margin-top: 6px;
+            display: flex;
+            justify-content: center;
+        }
+
+        body.light .offline-section {
+            border-top-color: rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-offline {
+            background: linear-gradient(135deg, #4a3a8a, #2a1a5a);
+            border: 1px solid rgba(120, 100, 255, 0.12);
+            border-radius: 40px;
+            padding: 12px 32px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #c8c0ff;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
+            box-shadow: 0 0 25px rgba(100, 60, 255, 0.05);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-offline:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 35px rgba(100, 60, 255, 0.15);
+            background: linear-gradient(135deg, #5a4a9a, #3a2a6a);
+        }
+
+        .btn-offline i {
+            font-size: 1.1rem;
+        }
+
+        body.light .btn-offline {
+            background: linear-gradient(135deg, #5a4a9a, #3a2a6a);
+            color: #e8e0ff;
+        }
+
+        body.light .btn-offline:hover {
+            background: linear-gradient(135deg, #6a5aaa, #4a3a7a);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            color: #4a5a7a;
+            font-size: 0.65rem;
+            padding: 14px 0 2px;
+            border-top: 1px solid rgba(0, 255, 255, 0.04);
+            margin-top: 18px;
+        }
+
+        body.light .footer {
+            border-top-color: rgba(0, 0, 0, 0.04);
+            color: #5a6a7a;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .glass-card {
+                padding: 20px 16px 16px;
+                border-radius: 28px;
+            }
+            .header h1 {
+                font-size: 1.2rem;
+            }
+            .header .icon {
+                font-size: 2.2rem;
+            }
+            .tool-card {
+                padding: 16px 14px;
+            }
+            .tool-card .emoji {
+                font-size: 2rem;
+            }
+            .btn-offline {
+                padding: 10px 22px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ===== LOADING OVERLAY ===== */
+        #loadingOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(6px);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        #loadingOverlay.show {
+            display: flex;
+        }
+
+        #loadingOverlay .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #8af0ff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #loadingOverlay .load-text {
+            color: #d0daff;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        body.light #loadingOverlay {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        body.light #loadingOverlay .load-text {
+            color: #1a1a3e;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay">
+        <div class="spinner"></div>
+        <div class="load-text">در حال آماده‌سازی دانلود ...</div>
+    </div>
+
+    <!-- ===== MAIN CARD ===== -->
+    <div class="glass-card">
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="icon">⚔️</div>
+            <h1>مدیریت اسلحه و مهمات · ارتش شیراز</h1>
+            <div class="sub">ابزارهای تمدید جواز و مرخصی</div>
+        </div>
+
+        <!-- Tools Grid -->
+        <div class="tools-grid">
+
+            <a href="JavazRenewal.html" class="tool-card">
+                <span class="emoji">💰</span>
+                <h3>محاسبه‌گر جریمه تمدید</h3>
+                <p>محاسبه جریمه دیرکرد، هزینه تمدید و هزینه‌های اضافی</p>
+            </a>
+
+            <a href="مرخصی/مرخصی.html" class="tool-card">
+                <span class="emoji">📋</span>
+                <h3>برگه مرخصی</h3>
+                <p>صدور برگه مرخصی با قابلیت آپلود لوگو و ویرایش اطلاعات</p>
+            </a>
+
+        </div>
+
+        <!-- Offline Download -->
+        <div class="offline-section">
+            <button class="btn-offline" id="offlineBtn">
+                <i class="fas fa-download"></i>
+                دانلود آفلاین (کل سایت)
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            © ۲۰۲۶ · طراحی و توسعه توسط بهروزی · تمامی حقوق محفوظ است
+        </div>
+
+    </div>
+
+    <!-- ===== Scripts ===== -->
+
+    <!-- ZIP library (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zip.js/2.7.52/zip.min.js">
+    </script>
+
+    <script>
+        // ================================================================
+        // THEME TOGGLE
+        // ================================================================
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('light');
+            this.textContent = document.body.classList.contains('light') ? '🌓' : '🌙';
+        });
+
+        // ================================================================
+        // OFFLINE DOWNLOAD — با استفاده از zip.js
+        // ================================================================
+        document.getElementById('offlineBtn').addEventListener('click', async function() {
+            const overlay = document.getElementById('loadingOverlay');
+            overlay.classList.add('show');
+
+            try {
+                // لیست فایل‌هایی که باید در ZIP قرار بگیرند
+                const filesToZip = [
+                    { path: 'JavazRenewal.html', url: 'JavazRenewal.html' },
+                    { path: 'مرخصی/مرخصی.html', url: 'مرخصی/مرخصی.html' },
+                    { path: 'مرخصی/Seal_of_the_Islamic_Republic_of_Iran_Army.svg.webp',
+                        url: 'مرخصی/Seal_of_the_Islamic_Republic_of_Iran_Army.svg.webp' },
+                    { path: 'مرخصی/images (1).png', url: 'مرخصی/images (1).png' },
+                    { path: 'مرخصی/مرخصی.docx', url: 'مرخصی/مرخصی.docx' },
+                    { path: 'index.html', url: window.location.href.split('?')[0] }, // همین صفحه
+                ];
+
+                // ایجاد یک blob برای هر فایل
+                const zip = new zip.ZipWriter(new zip.BlobWriter('application/zip'));
+
+                for (const file of filesToZip) {
+                    try {
+                        const response = await fetch(file.url);
+                        if (!response.ok) {
+                            console.warn('⚠️ فایل یافت نشد:', file.url);
+                            continue;
+                        }
+                        const blob = await response.blob();
+                        await zip.add(file.path, new zip.BlobReader(blob));
+                    } catch (err) {
+                        console.warn('❌ خطا در افزودن فایل:', file.url, err);
+                    }
+                }
+
+                // اضافه کردن یک فایل Readme ساده برای آفلاین
+                const readmeContent =
+                    `# ابزارهای مدیریت اسلحه و مهمات · ارتش شیراز\n\nاین بسته شامل:\n- JavazRenewal.html : محاسبه‌گر جریمه تمدید\n- مرخصی/مرخصی.html : برگه مرخصی\n\nبرای استفاده، فایل index.html را در مرورگر باز کنید.\n\nتاریخ تهیه: ${new Date().toLocaleDateString('fa-IR')}`;
+                await zip.add('README_OFFLINE.txt', new zip.TextReader(readmeContent));
+
+                // دانلود ZIP
+                const zipBlob = await zip.close();
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(zipBlob);
+                link.download = 'javaz-tools-offline.zip';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(link.href);
+
+            } catch (error) {
+                console.error('❌ خطا در ساخت ZIP:', error);
+                alert('متأسفانه دانلود با خطا مواجه شد. لطفاً دوباره تلاش کنید.');
+            } finally {
+                overlay.classList.remove('show');
+            }
+        });
+    </script>
+
+</body>
+</html>
