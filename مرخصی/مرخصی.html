@@ -81,15 +81,15 @@
         }
 
         /* ================================================================
-                   HEADER — ساختار جدولی برای چاپ دقیق
+                   HEADER — ساختار دقیقاً مانند فایل ورد
                    ================================================================ */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid rgba(0, 255, 255, 0.1);
-            padding-bottom: 12px;
-            margin-bottom: 18px;
+            padding-bottom: 10px;
+            margin-bottom: 16px;
             gap: 10px;
         }
 
@@ -107,10 +107,10 @@
         }
 
         .logo-container .logo-preview {
-            width: 80px;
-            height: 80px;
+            width: 75px;
+            height: 75px;
             border: 2px dashed rgba(0, 255, 255, 0.12);
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -133,7 +133,7 @@
 
         .logo-container .logo-preview .placeholder {
             color: #6a7a9a;
-            font-size: 0.55rem;
+            font-size: 0.5rem;
             text-align: center;
             padding: 4px;
             line-height: 1.4;
@@ -144,18 +144,18 @@
         }
 
         .logo-container .logo-label {
-            font-size: 0.55rem;
+            font-size: 0.5rem;
             color: #7a8aaa;
             font-weight: 400;
         }
 
         .logo-container .upload-btn {
-            font-size: 0.5rem;
+            font-size: 0.45rem;
             color: #8af0ff;
             background: rgba(0, 200, 255, 0.05);
             border: 1px solid rgba(0, 255, 255, 0.06);
             border-radius: 20px;
-            padding: 2px 10px;
+            padding: 2px 8px;
             cursor: pointer;
             transition: 0.2s;
             font-family: inherit;
@@ -217,7 +217,7 @@
         }
 
         .header-center h1 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #c8c0ff;
             letter-spacing: 0.3px;
@@ -302,6 +302,9 @@
         }
         .input-inline input.rank {
             width: 120px;
+        }
+        .input-inline input.commander {
+            width: 200px;
         }
 
         body.light .input-inline input {
@@ -542,15 +545,15 @@
                 width: 100% !important;
                 border-bottom: 3px solid #1a3a5c !important;
                 padding-bottom: 8px !important;
-                margin-bottom: 14px !important;
+                margin-bottom: 12px !important;
                 table-layout: fixed !important;
             }
 
             .logo-container {
                 display: table-cell !important;
-                width: 90px !important;
-                min-width: 90px !important;
-                max-width: 90px !important;
+                width: 85px !important;
+                min-width: 85px !important;
+                max-width: 85px !important;
                 vertical-align: middle !important;
                 text-align: center !important;
                 padding: 0 !important;
@@ -561,8 +564,8 @@
                 display: block !important;
                 border: none !important;
                 background: transparent !important;
-                width: 75px !important;
-                height: 75px !important;
+                width: 70px !important;
+                height: 70px !important;
                 margin: 0 auto !important;
                 padding: 0 !important;
                 cursor: default !important;
@@ -570,8 +573,8 @@
 
             .logo-container .logo-preview img {
                 display: block !important;
-                max-width: 75px !important;
-                max-height: 75px !important;
+                max-width: 70px !important;
+                max-height: 70px !important;
                 margin: 0 auto !important;
             }
 
@@ -580,7 +583,7 @@
                 width: auto !important;
                 text-align: center !important;
                 vertical-align: middle !important;
-                padding: 0 10px !important;
+                padding: 0 8px !important;
             }
 
             .bismillah {
@@ -593,7 +596,7 @@
             }
 
             .header-center h1 {
-                font-size: 1.1rem !important;
+                font-size: 1.05rem !important;
                 color: #000 !important;
                 text-shadow: none !important;
                 font-weight: 700 !important;
@@ -651,12 +654,15 @@
             .print-value.rank {
                 min-width: 90px !important;
             }
+            .print-value.commander {
+                min-width: 160px !important;
+            }
 
             /* ===== امضاها — دقیقاً شبیه ورد ===== */
             .signature-box {
-                margin-top: 14px !important;
+                margin-top: 12px !important;
                 border-top: 2px dashed #555 !important;
-                padding-top: 12px !important;
+                padding-top: 10px !important;
                 display: flex !important;
                 justify-content: space-between !important;
                 gap: 30px !important;
@@ -685,12 +691,12 @@
 
             /* ===== حضور در یگان — یک خط ===== */
             .presence-row {
-                margin-top: 12px !important;
-                padding: 5px 0 !important;
+                margin-top: 10px !important;
+                padding: 4px 0 !important;
                 font-size: 0.9rem !important;
                 color: #000 !important;
                 border-top: 1px solid #aaa !important;
-                padding-top: 10px !important;
+                padding-top: 8px !important;
                 display: block !important;
                 width: 100% !important;
                 white-space: nowrap !important;
@@ -735,12 +741,12 @@
 
             /* ===== فرمانده ===== */
             .commander {
-                margin-top: 12px !important;
+                margin-top: 10px !important;
                 text-align: left !important;
                 font-size: 0.9rem !important;
                 color: #222 !important;
                 border-top: 1px solid #aaa !important;
-                padding-top: 10px !important;
+                padding-top: 8px !important;
             }
 
             .commander strong {
@@ -781,8 +787,8 @@
             }
 
             .logo-container .logo-preview {
-                width: 65px;
-                height: 65px;
+                width: 60px;
+                height: 60px;
             }
 
             .header-center h1 {
@@ -814,6 +820,9 @@
             .input-inline input.rank {
                 width: 90px;
             }
+            .input-inline input.commander {
+                width: 140px;
+            }
 
             .signature-box {
                 flex-direction: column;
@@ -836,8 +845,8 @@
 
         @media (max-width: 480px) {
             .logo-container .logo-preview {
-                width: 55px;
-                height: 55px;
+                width: 50px;
+                height: 50px;
             }
 
             .main-text {
@@ -853,6 +862,9 @@
             }
             .input-inline input.rank {
                 width: 70px;
+            }
+            .input-inline input.commander {
+                width: 100px;
             }
 
             .btn {
@@ -1006,9 +1018,13 @@
         </span>
     </div>
 
-    <!-- ===== COMMANDER ===== -->
+    <!-- ===== COMMANDER — اسم فرمانده قابل تغییر ===== -->
     <div class="commander">
-        <strong>فرمانده مدیریت اسلحه و مهمات : سرهنگ بشکار</strong>
+        <strong>فرمانده مدیریت اسلحه و مهمات :</strong>
+        <span class="input-inline">
+            <input type="text" id="commanderName" value="سرهنگ بشکار" class="commander">
+            <span class="print-value commander">سرهنگ بشکار</span>
+        </span>
         <div class="sign-line">امضا: __________________</div>
     </div>
 
@@ -1087,6 +1103,7 @@
                 if (inp.classList.contains('xlarge')) span.classList.add('xlarge');
                 if (inp.classList.contains('date')) span.classList.add('date');
                 if (inp.classList.contains('rank')) span.classList.add('rank');
+                if (inp.classList.contains('commander')) span.classList.add('commander');
                 inp.parentNode.insertBefore(span, inp.nextSibling);
             }
             span.textContent = inp.value;
@@ -1107,6 +1124,7 @@
                 if (inp.classList.contains('xlarge')) span.classList.add('xlarge');
                 if (inp.classList.contains('date')) span.classList.add('date');
                 if (inp.classList.contains('rank')) span.classList.add('rank');
+                if (inp.classList.contains('commander')) span.classList.add('commander');
                 inp.parentNode.insertBefore(span, inp.nextSibling);
             }
             span.textContent = inp.value;
@@ -1129,6 +1147,7 @@
         document.getElementById('holidayLeave').value = '۰';
         document.getElementById('returnTime').value = '۱۶:۰۰';
         document.getElementById('returnDate').value = '۱۴۰۴/۰۱/۱۰';
+        document.getElementById('commanderName').value = 'سرهنگ بشکار';
         updatePreview();
     }
 
