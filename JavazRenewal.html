@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مدیریت تمدید جواز · ارتش شیراز</title>
     <style>
+        /* ===== RESET & BASE ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body {
             width: 100%;
@@ -25,7 +26,7 @@
             background: radial-gradient(circle at 20% 30%, #e8ecf3, #d0d8e5);
         }
 
-        /* ----- Light theme overrides ----- */
+        /* ===== LIGHT THEME OVERRIDES ===== */
         body.light .glass-card {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(18px);
@@ -67,13 +68,16 @@
         body.light .extra-item { background: rgba(255,255,255,0.2); border-color: rgba(0,0,0,0.06); }
         body.light .extra-item input { background: rgba(255,255,255,0.4); color: #1a1a2e; border-color: rgba(0,0,0,0.1); }
         body.light .extra-item .btn-del { color: #a04040; }
+        body.light .copyright { color: #4a4a6a; }
+        body.light .btn-print { background: rgba(0,0,0,0.04); color: #3a3a5a; border-color: rgba(0,0,0,0.08); }
+        body.light .btn-print:hover { background: rgba(0,0,0,0.08); }
 
-        /* ----- Main Card ----- */
+        /* ===== MAIN CARD ===== */
         .glass-card {
             width: 100%;
-            max-width: 720px;
+            max-width: 740px;
             height: 100%;
-            max-height: 780px;
+            max-height: 800px;
             display: flex;
             flex-direction: column;
             background: rgba(8, 6, 22, 0.7);
@@ -85,9 +89,10 @@
             box-shadow: 0 0 40px rgba(0, 200, 255, 0.06), 0 0 80px rgba(100, 0, 255, 0.04);
             transition: all 0.3s ease;
             overflow: hidden;
+            position: relative;
         }
 
-        /* ----- Header with gun icon ----- */
+        /* ===== HEADER ===== */
         .header {
             display: flex;
             justify-content: space-between;
@@ -136,7 +141,7 @@
             box-shadow: 0 0 20px rgba(0, 200, 255, 0.1);
         }
 
-        /* ----- Scrollable content ----- */
+        /* ===== SCROLL CONTENT ===== */
         .scroll-content {
             flex: 1 1 auto;
             overflow-y: auto;
@@ -155,7 +160,7 @@
             border-radius: 10px;
         }
 
-        /* ----- Input groups ----- */
+        /* ===== INPUT GROUPS ===== */
         .input-group {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 18px;
@@ -237,7 +242,7 @@
             text-align: left;
         }
 
-        /* Settings */
+        /* ===== SETTINGS ===== */
         .settings-group {
             display: flex;
             flex-wrap: wrap;
@@ -278,7 +283,7 @@
             cursor: pointer;
         }
 
-        /* Mode */
+        /* ===== MODE ===== */
         .mode-group {
             display: flex;
             gap: 14px;
@@ -304,7 +309,7 @@
             height: 13px;
         }
 
-        /* ----- Extra Fees Section ----- */
+        /* ===== EXTRA FEES ===== */
         .extra-section {
             margin-bottom: 10px;
             border: 1px solid rgba(0, 255, 255, 0.05);
@@ -397,9 +402,20 @@
             transform: scale(1.2);
         }
 
-        /* Button */
+        /* ===== BUTTONS ROW ===== */
+        .btn-row {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+            margin-bottom: 8px;
+        }
+        .btn-row .btn-calc {
+            flex: 3;
+        }
+        .btn-row .btn-print {
+            flex: 1;
+        }
         .btn-calc {
-            width: 100%;
             background: linear-gradient(135deg, #4a3a8a, #2a1a5a);
             border: none;
             border-radius: 28px;
@@ -413,8 +429,6 @@
             font-family: inherit;
             letter-spacing: 0.5px;
             border: 1px solid rgba(120, 100, 255, 0.12);
-            flex-shrink: 0;
-            margin-bottom: 8px;
         }
         .btn-calc:hover {
             transform: scale(1.02);
@@ -423,7 +437,26 @@
         }
         .btn-calc:active { transform: scale(0.97); }
 
-        /* Results */
+        .btn-print {
+            background: rgba(0, 200, 255, 0.06);
+            border: 1px solid rgba(0, 255, 255, 0.12);
+            border-radius: 28px;
+            padding: 9px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #8af0ff;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
+            box-shadow: 0 0 15px rgba(0, 200, 255, 0.04);
+        }
+        .btn-print:hover {
+            background: rgba(0, 200, 255, 0.12);
+            box-shadow: 0 0 25px rgba(0, 200, 255, 0.12);
+            transform: scale(1.02);
+        }
+
+        /* ===== RESULTS ===== */
         .result-box {
             background: rgba(0, 0, 0, 0.2);
             border-radius: 18px;
@@ -471,7 +504,140 @@
         }
         #approxRow { display: none; }
 
-        /* Responsive */
+        /* ===== COPYRIGHT ===== */
+        .copyright {
+            text-align: center;
+            color: #4a5a7a;
+            font-size: 0.6rem;
+            padding: 6px 0 2px;
+            border-top: 1px solid rgba(0, 255, 255, 0.04);
+            flex-shrink: 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== RECEIPT (hidden by default, shown in print) ===== */
+        #receipt {
+            display: none;
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                overflow: visible !important;
+                height: auto !important;
+            }
+            .glass-card {
+                max-height: none !important;
+                height: auto !important;
+                background: white !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 20px !important;
+                border-radius: 0 !important;
+            }
+            .scroll-content {
+                overflow: visible !important;
+                max-height: none !important;
+                height: auto !important;
+            }
+            .input-group, .settings-group, .mode-group, .extra-section,
+            .btn-row, .theme-toggle, .btn-reset, .btn-add-extra,
+            .header .theme-toggle, .header .subtitle, .hint,
+            .extra-item .btn-del, .extra-item input {
+                display: none !important;
+            }
+            .result-box {
+                background: transparent !important;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                padding: 16px !important;
+            }
+            .result-item {
+                color: #222 !important;
+                border-bottom-color: #ddd !important;
+                font-size: 0.95rem !important;
+                padding: 6px 0 !important;
+            }
+            .result-item .value {
+                color: #000 !important;
+                font-weight: 600 !important;
+            }
+            .result-total {
+                border-top-color: #333 !important;
+                color: #000 !important;
+                font-size: 1.3rem !important;
+            }
+            .result-total .value {
+                color: #000 !important;
+                font-size: 1.5rem !important;
+                text-shadow: none !important;
+            }
+            .date-detail {
+                color: #555 !important;
+                border-top-color: #ddd !important;
+                font-size: 0.7rem !important;
+            }
+            #receipt {
+                display: block !important;
+                margin-top: 20px;
+                border-top: 2px dashed #aaa;
+                padding-top: 16px;
+            }
+            #receipt h2 {
+                text-align: center;
+                color: #222;
+                font-size: 1.4rem;
+                margin-bottom: 12px;
+            }
+            #receipt .receipt-row {
+                display: flex;
+                justify-content: space-between;
+                padding: 4px 0;
+                font-size: 0.9rem;
+                color: #222;
+                border-bottom: 1px solid #eee;
+            }
+            #receipt .receipt-total {
+                display: flex;
+                justify-content: space-between;
+                font-size: 1.2rem;
+                font-weight: 700;
+                color: #000;
+                border-top: 2px solid #333;
+                margin-top: 8px;
+                padding-top: 10px;
+            }
+            .copyright {
+                color: #555 !important;
+                border-top: 1px solid #ccc !important;
+                margin-top: 16px !important;
+                padding-top: 8px !important;
+                font-size: 0.7rem !important;
+            }
+            .gun-icon, h1 {
+                color: #000 !important;
+                text-shadow: none !important;
+            }
+            .header-left .subtitle {
+                display: none !important;
+            }
+            .header {
+                margin-bottom: 16px !important;
+            }
+            .btn-print {
+                display: none !important;
+            }
+            .btn-calc {
+                display: none !important;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 480px) {
             .glass-card { padding: 10px 10px; max-height: 100vh; border-radius: 24px; }
             .input-group { padding: 6px 8px; margin-bottom: 6px; }
@@ -482,6 +648,7 @@
             .mode-group { gap: 6px; padding: 3px 8px; }
             .mode-group label { font-size: 0.65rem; }
             .btn-calc { padding: 7px; font-size: 0.85rem; }
+            .btn-print { padding: 7px; font-size: 0.8rem; }
             .result-box { padding: 8px 10px; }
             .result-item { font-size: 0.7rem; }
             .result-total { font-size: 0.95rem; }
@@ -495,6 +662,7 @@
 </head>
 <body>
 <div class="glass-card">
+    <!-- HEADER -->
     <div class="header">
         <div class="header-left">
             <span class="gun-icon">🔫</span>
@@ -560,13 +728,14 @@
                 <label>💰 هزینه‌های اضافی (مثلاً انتقال تفنگ)</label>
                 <button class="btn-add-extra" id="addExtraBtn">+ افزودن</button>
             </div>
-            <div class="extra-list" id="extraList">
-                <!-- ردیف‌ها به‌صورت داینامیک اضافه می‌شوند -->
-            </div>
+            <div class="extra-list" id="extraList"></div>
         </div>
 
-        <!-- دکمه محاسبه -->
-        <button class="btn-calc" id="calcBtn">✨ محاسبه نئونی</button>
+        <!-- دکمه‌ها -->
+        <div class="btn-row">
+            <button class="btn-calc" id="calcBtn">✨ محاسبه نئونی</button>
+            <button class="btn-print" id="printBtn">🖨️ چاپ رسید</button>
+        </div>
 
         <!-- نتایج -->
         <div class="result-box" id="resultBox">
@@ -578,6 +747,18 @@
             <div class="result-total"><span>جمع کل قابل پرداخت</span><span class="value" id="totalAmount">-</span></div>
             <div class="date-detail" id="dateDetail"></div>
         </div>
+
+        <!-- رسید (فقط در چاپ نمایش داده می‌شود) -->
+        <div id="receipt">
+            <h2>🔫 رسید تمدید جواز · ارتش شیراز</h2>
+            <div id="receiptContent"></div>
+            <div class="copyright" style="border-top:1px solid #ccc; margin-top:12px; padding-top:8px; color:#555; text-align:center;">
+                © Behrouzi — کلیه حقوق محفوظ است
+            </div>
+        </div>
+
+        <!-- کپی‌رایت در صفحه اصلی -->
+        <div class="copyright">© Behrouzi — کلیه حقوق محفوظ است</div>
     </div>
 </div>
 
@@ -672,7 +853,7 @@
         document.getElementById('expDateHint').textContent = '(پیش‌فرض: یک سال قبل)';
     }
 
-    // ---------- مدیریت هزینه‌های اضافی ----------
+    // ---------- هزینه‌های اضافی ----------
     let extraItems = [];
 
     function renderExtraItems() {
@@ -688,7 +869,6 @@
             `;
             container.appendChild(div);
         });
-        // رویدادها
         container.querySelectorAll('.extra-title').forEach(inp => {
             inp.addEventListener('input', function() {
                 const idx = parseInt(this.dataset.idx);
@@ -773,7 +953,7 @@
         } catch(e) { return false; }
     }
 
-    // ---------- محاسبه ----------
+    // ---------- محاسبه و به‌روزرسانی رسید ----------
     function calculate() {
         const expY = parseInt(document.getElementById('expYear').value);
         const expM = parseInt(document.getElementById('expMonth').value);
@@ -810,11 +990,13 @@
         }
 
         let fine = 0, finePartial = 0, total = 0;
+        let monthsDisplay = '';
 
         if (mode === 'exact') {
             fine = fullMonths * fineRate;
             if (fullMonths < 0) fullMonths = 0;
-            document.getElementById('monthsOverdue').textContent = fullMonths + ' ماه';
+            monthsDisplay = fullMonths + ' ماه';
+            document.getElementById('monthsOverdue').textContent = monthsDisplay;
             document.getElementById('fineFull').textContent = fine.toLocaleString() + ' تومان';
             document.getElementById('approxRow').style.display = 'none';
         } else {
@@ -823,7 +1005,8 @@
             fine = fullMonths * fineRate;
             finePartial = Math.round(fraction * fineRate);
             const totalFine = fine + finePartial;
-            document.getElementById('monthsOverdue').textContent = (fullMonths + fraction).toFixed(2) + ' ماه';
+            monthsDisplay = (fullMonths + fraction).toFixed(2) + ' ماه';
+            document.getElementById('monthsOverdue').textContent = monthsDisplay;
             document.getElementById('fineFull').textContent = fine.toLocaleString() + ' تومان';
             document.getElementById('finePartial').textContent = finePartial.toLocaleString() + ' تومان';
             document.getElementById('approxRow').style.display = 'flex';
@@ -838,7 +1021,6 @@
         }
         document.getElementById('renewalAmount').textContent = renewalText;
 
-        // هزینه‌های اضافی
         const extraTotal = getExtraTotal();
         document.getElementById('extraTotal').textContent = extraTotal > 0 ? extraTotal.toLocaleString() + ' تومان' : 'هیچ';
         total += extraTotal;
@@ -852,7 +1034,36 @@
         document.getElementById('dateDetail').textContent =
             `انقضا: ${expDateStr}  |  جاری: ${curDateStr}  |  امروز: ${weekDayNow} ${curD} ${monthNames[curM-1]} ${curY}`;
 
+        // ---------- پر کردن رسید ----------
+        const receiptContent = document.getElementById('receiptContent');
+        let html = `
+            <div class="receipt-row"><span>تاریخ انقضا</span><span>${expDateStr}</span></div>
+            <div class="receipt-row"><span>تاریخ جاری</span><span>${curDateStr}</span></div>
+            <div class="receipt-row"><span>ماه‌های دیرکرد</span><span>${monthsDisplay}</span></div>
+            <div class="receipt-row"><span>جریمه دیرکرد</span><span>${fine.toLocaleString()} تومان</span></div>
+        `;
+        if (mode === 'approx' && finePartial > 0) {
+            html += `<div class="receipt-row"><span>کسر روز (تقریبی)</span><span>${finePartial.toLocaleString()} تومان</span></div>`;
+        }
+        html += `<div class="receipt-row"><span>هزینه تمدید</span><span>${renewalText}</span></div>`;
+        if (extraItems.length > 0) {
+            extraItems.forEach(item => {
+                if (item.amount > 0) {
+                    html += `<div class="receipt-row"><span>${item.title}</span><span>${parseInt(item.amount).toLocaleString()} تومان</span></div>`;
+                }
+            });
+            html += `<div class="receipt-row" style="border-top:1px solid #ddd; padding-top:6px;"><span>مجموع هزینه‌های اضافی</span><span>${extraTotal.toLocaleString()} تومان</span></div>`;
+        }
+        html += `<div class="receipt-total"><span>جمع کل قابل پرداخت</span><span>${total.toLocaleString()} تومان</span></div>`;
+        html += `<div style="font-size:0.7rem; color:#777; margin-top:8px; text-align:left;">تاریخ چاپ: ${new Date().toLocaleDateString('fa-IR')}</div>`;
+        receiptContent.innerHTML = html;
+
         saveSettings();
+    }
+
+    // ---------- چاپ رسید ----------
+    function printReceipt() {
+        window.print();
     }
 
     // ---------- راه‌اندازی ----------
@@ -862,7 +1073,6 @@
         if (!loaded) {
             setDefaultExpiry();
             setCurrentDateFromSystem();
-            // یک نمونه هزینه اضافی پیش‌فرض
             addExtraItem('هزینه انتقال تفنگ', 0);
         } else {
             const expY = document.getElementById('expYear'), expM = document.getElementById('expMonth'), expD = document.getElementById('expDay');
@@ -895,20 +1105,19 @@
 
         document.getElementById('calcBtn').addEventListener('click', calculate);
 
-        // دکمه افزودن هزینه اضافی
         document.getElementById('addExtraBtn').addEventListener('click', function() {
             addExtraItem('هزینه جدید', 0);
             calculate();
         });
 
-        // دکمه تم
+        document.getElementById('printBtn').addEventListener('click', printReceipt);
+
         const toggle = document.getElementById('themeToggle');
         toggle.addEventListener('click', function() {
             document.body.classList.toggle('light');
             this.textContent = document.body.classList.contains('light') ? '🌓' : '🌙';
         });
 
-        // ذخیره خودکار
         document.querySelectorAll('select, input').forEach(el => {
             el.addEventListener('change', saveSettings);
         });
