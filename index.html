@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" href="مرخصی/images%20(1).png">
     <link rel="apple-touch-icon" href="مرخصی/Seal_of_the_Islamic_Republic_of_Iran_Army.svg.webp">
 
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
@@ -28,13 +28,12 @@
             background: #0b0a1a;
             font-family: 'Segoe UI', 'Tahoma', sans-serif;
             direction: rtl;
-            padding: 20px;
+            padding: 16px;
             transition: background 0.4s ease;
             position: relative;
             overflow: hidden;
         }
 
-        /* ===== CANVAS STAR BACKGROUND ===== */
         #starCanvas {
             position: fixed;
             top: 0;
@@ -46,20 +45,19 @@
         }
 
         body.light #starCanvas {
-            opacity: 0.3;
+            opacity: 0.2;
         }
 
-        /* ===== GLASS CARD ===== */
         .glass-card {
             width: 100%;
-            max-width: 960px;
-            background: rgba(8, 6, 22, 0.7);
+            max-width: 920px;
+            background: rgba(8, 6, 22, 0.75);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border-radius: 40px;
-            padding: 24px 28px 20px;
+            border-radius: 36px;
+            padding: 22px 24px 18px;
             border: 1px solid rgba(0, 255, 255, 0.06);
-            box-shadow: 0 0 60px rgba(0, 200, 255, 0.03);
+            box-shadow: 0 0 60px rgba(0, 200, 255, 0.02);
             transition: all 0.3s ease;
             position: relative;
             z-index: 1;
@@ -75,8 +73,8 @@
         /* ===== THEME TOGGLE ===== */
         .theme-toggle {
             position: absolute;
-            top: 14px;
-            left: 14px;
+            top: 12px;
+            left: 12px;
             background: rgba(0, 200, 255, 0.05);
             border: 1px solid rgba(0, 255, 255, 0.06);
             border-radius: 40px;
@@ -113,7 +111,7 @@
             border-bottom: 3px solid rgba(0, 255, 255, 0.05);
             padding-bottom: 10px;
             margin-bottom: 14px;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
@@ -122,23 +120,23 @@
         }
 
         .logo-side {
-            flex: 0 0 70px;
+            flex: 0 0 60px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .logo-side img {
-            width: 65px;
-            height: 65px;
+            width: 55px;
+            height: 55px;
             object-fit: contain;
-            filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.06));
+            filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.05));
             border-radius: 8px;
             transition: 0.3s;
         }
 
         .logo-side img:hover {
-            filter: drop-shadow(0 0 30px rgba(0, 200, 255, 0.15));
+            filter: drop-shadow(0 0 30px rgba(0, 200, 255, 0.12));
             transform: scale(1.04);
         }
 
@@ -149,25 +147,25 @@
         .header-center {
             text-align: center;
             flex: 1;
-            padding: 0 6px;
+            padding: 0 4px;
         }
 
         .header-center .icon {
-            font-size: 1.8rem;
-            filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.06));
+            font-size: 1.6rem;
+            filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.05));
         }
 
         .header-center h1 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #c8c0ff;
-            text-shadow: 0 0 30px rgba(120, 80, 255, 0.04);
+            text-shadow: 0 0 30px rgba(120, 80, 255, 0.03);
             letter-spacing: 0.3px;
             line-height: 1.3;
         }
 
         .header-center .sub {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #7a8aaa;
             font-weight: 400;
         }
@@ -181,43 +179,45 @@
             color: #4a4a6a;
         }
 
-        /* ===== DATE & TIME ===== */
+        /* ================================================================
+                   DATE & TIME
+                   ================================================================ */
         .datetime-display {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 14px;
             flex-wrap: wrap;
             background: rgba(255, 255, 255, 0.02);
-            border-radius: 16px;
-            padding: 8px 14px;
+            border-radius: 14px;
+            padding: 6px 12px;
             margin-bottom: 14px;
             border: 1px solid rgba(0, 255, 255, 0.03);
         }
 
         body.light .datetime-display {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             border-color: rgba(0, 0, 0, 0.03);
         }
 
         .datetime-item {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             color: #9aa8d8;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
         }
 
         .datetime-item i {
             color: #7a8cff;
-            font-size: 0.8rem;
-            width: 16px;
+            font-size: 0.75rem;
+            width: 14px;
             text-align: center;
         }
 
         .datetime-item .value {
             color: #d0daff;
             font-weight: 500;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
 
         body.light .datetime-item {
@@ -233,48 +233,46 @@
         }
 
         /* ================================================================
-                   TOP GRID
+                   SERVICE SECTION
                    ================================================================ */
-        .top-grid {
+        .service-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
+            gap: 12px;
             margin-bottom: 14px;
         }
 
-        @media (max-width: 700px) {
-            .top-grid {
+        @media (max-width: 680px) {
+            .service-section {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* ===== SERVICE CARDS ===== */
         .service-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(0, 255, 255, 0.04);
-            border-radius: 18px;
-            padding: 14px 16px;
-            transition: 0.3s;
+            border-radius: 16px;
+            padding: 12px 14px;
         }
 
         body.light .service-card {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             border-color: rgba(0, 0, 0, 0.03);
         }
 
         .service-card .label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #7a8aaa;
             font-weight: 400;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             margin-bottom: 2px;
         }
 
         .service-card .label i {
             color: #7a8cff;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
         }
 
         body.light .service-card .label {
@@ -288,30 +286,28 @@
         .service-card .numbers {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px 14px;
+            gap: 4px 12px;
         }
 
         .service-card .number-item {
             display: flex;
             align-items: baseline;
-            gap: 3px;
+            gap: 2px;
         }
 
         .service-card .number-item .num {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             color: #d0daff;
-            text-shadow: 0 0 12px rgba(120, 80, 255, 0.04);
         }
 
         .service-card .number-item .unit {
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             color: #7a8aaa;
         }
 
         body.light .service-card .number-item .num {
             color: #1a1a3e;
-            text-shadow: none;
         }
 
         body.light .service-card .number-item .unit {
@@ -320,11 +316,11 @@
 
         .service-totals {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             margin-top: 4px;
             flex-wrap: wrap;
             border-top: 1px solid rgba(0, 255, 255, 0.04);
-            padding-top: 6px;
+            padding-top: 4px;
         }
 
         body.light .service-totals {
@@ -332,17 +328,17 @@
         }
 
         .service-totals .total-item {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #7a8aaa;
             display: flex;
             align-items: baseline;
-            gap: 3px;
+            gap: 2px;
         }
 
         .service-totals .total-item .num {
             font-weight: 600;
             color: #8af0ff;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
 
         body.light .service-totals .total-item .num {
@@ -350,149 +346,180 @@
         }
 
         /* ================================================================
-                   POWER CARD
+                   POWER SECTION
                    ================================================================ */
+        .power-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        @media (max-width: 680px) {
+            .power-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .power-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(0, 255, 255, 0.04);
-            border-radius: 18px;
-            padding: 14px 16px;
+            border-radius: 16px;
+            padding: 12px 14px;
             transition: 0.3s;
         }
 
         body.light .power-card {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             border-color: rgba(0, 0, 0, 0.03);
         }
 
-        .power-card .label {
-            font-size: 0.7rem;
-            color: #7a8aaa;
-            font-weight: 400;
+        .power-card .power-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 6px;
             margin-bottom: 4px;
-            flex-wrap: wrap;
         }
 
-        .power-card .label i {
-            color: #f5a623;
+        .power-card .power-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #9aa8d8;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .power-card .power-label i {
             font-size: 0.75rem;
         }
 
-        body.light .power-card .label {
-            color: #4a4a6a;
+        body.light .power-card .power-label {
+            color: #3a3a5a;
         }
 
-        .power-status {
+        .power-card .power-label .badge {
+            font-size: 0.5rem;
+            background: rgba(0, 200, 255, 0.08);
+            padding: 1px 8px;
+            border-radius: 12px;
+            color: #7a8aaa;
+            font-weight: 400;
+        }
+
+        .power-status-row {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 6px 12px;
-            border-radius: 12px;
-            margin-bottom: 6px;
-            font-size: 0.85rem;
+            gap: 8px;
+            padding: 4px 8px;
+            border-radius: 10px;
+            margin-bottom: 4px;
+            font-size: 0.8rem;
             font-weight: 600;
-            background: rgba(255, 255, 255, 0.03);
-            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        body.light .power-status {
-            background: rgba(255, 255, 255, 0.06);
+        body.light .power-status-row {
+            background: rgba(255, 255, 255, 0.04);
         }
 
-        .power-status .dot {
-            width: 12px;
-            height: 12px;
+        .power-status-row .dot {
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             display: inline-block;
             flex-shrink: 0;
         }
 
-        .power-status .dot.on {
+        .power-status-row .dot.on {
             background: #22c55e;
-            box-shadow: 0 0 16px rgba(34, 197, 94, 0.3);
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.25);
         }
 
-        .power-status .dot.off {
+        .power-status-row .dot.off {
             background: #ef4444;
-            box-shadow: 0 0 16px rgba(239, 68, 68, 0.3);
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
         }
 
-        .power-status .status-text {
+        .power-status-row .status-text {
             color: #d0daff;
+            font-size: 0.75rem;
         }
 
-        body.light .power-status .status-text {
+        body.light .power-status-row .status-text {
             color: #1a1a3e;
         }
 
-        .power-status .countdown {
-            font-size: 0.75rem;
-            color: #8af0ff;
-            background: rgba(0, 200, 255, 0.06);
-            padding: 2px 12px;
+        .power-status-row .timer {
+            margin-right: auto;
+            font-size: 0.65rem;
+            color: #7a8aaa;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1px 10px;
             border-radius: 20px;
-            border: 1px solid rgba(0, 200, 255, 0.06);
+            direction: ltr;
         }
 
-        body.light .power-status .countdown {
-            color: #5a4a9a;
-            background: rgba(90, 74, 154, 0.06);
-            border-color: rgba(90, 74, 154, 0.08);
+        body.light .power-status-row .timer {
+            background: rgba(0, 0, 0, 0.03);
+            color: #4a4a6a;
         }
 
         .power-times {
             display: flex;
             flex-wrap: wrap;
-            gap: 4px 8px;
-            margin-bottom: 6px;
+            gap: 3px 6px;
+            margin-top: 4px;
         }
 
         .power-times .time-tag {
-            font-size: 0.7rem;
-            padding: 2px 10px;
-            border-radius: 20px;
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.15);
+            font-size: 0.6rem;
+            padding: 1px 8px;
+            border-radius: 14px;
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.1);
             color: #f87171;
         }
 
         body.light .power-times .time-tag {
-            background: rgba(239, 68, 68, 0.05);
+            background: rgba(239, 68, 68, 0.04);
             color: #b91c1c;
         }
 
         .power-times .time-tag.active {
             background: rgba(239, 68, 68, 0.2);
-            border-color: rgba(239, 68, 68, 0.3);
-            box-shadow: 0 0 12px rgba(239, 68, 68, 0.08);
+            border-color: rgba(239, 68, 68, 0.25);
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.06);
+        }
+
+        .power-times .time-tag.off-today {
+            background: rgba(239, 68, 68, 0.12);
+            border-color: rgba(239, 68, 68, 0.15);
         }
 
         .power-edit-btn {
-            font-size: 0.6rem;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             color: #7a8aaa;
-            padding: 2px 12px;
+            padding: 1px 10px;
             border-radius: 20px;
             cursor: pointer;
             transition: 0.2s;
             font-family: inherit;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
         }
 
         .power-edit-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             color: #d0daff;
         }
 
         body.light .power-edit-btn {
             color: #4a4a6a;
-            border-color: rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 0, 0, 0.04);
         }
 
         body.light .power-edit-btn:hover {
@@ -501,35 +528,37 @@
         }
 
         .power-hint {
-            font-size: 0.55rem;
+            font-size: 0.5rem;
             color: #5a6a8a;
             margin-top: 4px;
         }
 
         .power-hint i {
-            margin-left: 4px;
+            margin-left: 3px;
         }
 
-        /* ===== PROGRESS BAR ===== */
+        /* ================================================================
+                   PROGRESS
+                   ================================================================ */
         .progress-section {
             margin-bottom: 14px;
             background: rgba(255, 255, 255, 0.02);
             border-radius: 14px;
-            padding: 10px 16px;
+            padding: 10px 14px;
             border: 1px solid rgba(0, 255, 255, 0.03);
         }
 
         body.light .progress-section {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             border-color: rgba(0, 0, 0, 0.03);
         }
 
         .progress-header {
             display: flex;
             justify-content: space-between;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #7a8aaa;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         body.light .progress-header {
@@ -547,11 +576,10 @@
 
         .progress-track {
             width: 100%;
-            height: 6px;
+            height: 5px;
             background: rgba(255, 255, 255, 0.04);
             border-radius: 20px;
             overflow: hidden;
-            position: relative;
         }
 
         body.light .progress-track {
@@ -574,7 +602,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
             animation: shimmer 2.5s infinite;
         }
 
@@ -590,24 +618,26 @@
         .progress-dates {
             display: flex;
             justify-content: space-between;
-            font-size: 0.55rem;
+            font-size: 0.5rem;
             color: #5a6a8a;
-            margin-top: 4px;
+            margin-top: 3px;
         }
 
         body.light .progress-dates {
             color: #5a6a7a;
         }
 
-        /* ===== TOOLS ===== */
+        /* ================================================================
+                   TOOLS
+                   ================================================================ */
         .tools-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 10px;
             margin-bottom: 14px;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 520px) {
             .tools-grid {
                 grid-template-columns: 1fr;
             }
@@ -616,8 +646,8 @@
         .tool-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(0, 255, 255, 0.04);
-            border-radius: 18px;
-            padding: 14px 14px 12px;
+            border-radius: 16px;
+            padding: 12px 12px 10px;
             text-align: center;
             transition: 0.3s;
             cursor: pointer;
@@ -628,37 +658,36 @@
 
         .tool-card:hover {
             background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(0, 200, 255, 0.12);
+            border-color: rgba(0, 200, 255, 0.1);
             transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(0, 200, 255, 0.03);
+            box-shadow: 0 6px 20px rgba(0, 200, 255, 0.02);
         }
 
         body.light .tool-card {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
             border-color: rgba(0, 0, 0, 0.03);
         }
 
         body.light .tool-card:hover {
-            background: rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.1);
             border-color: rgba(0, 0, 0, 0.06);
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.02);
         }
 
         .tool-card .emoji {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             display: block;
-            margin-bottom: 2px;
+            margin-bottom: 1px;
         }
 
         .tool-card h3 {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: #d0daff;
             margin-bottom: 1px;
         }
 
         .tool-card p {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #7a8aaa;
             line-height: 1.3;
         }
@@ -671,13 +700,15 @@
             color: #4a4a6a;
         }
 
-        /* ===== OFFLINE ===== */
+        /* ================================================================
+                   OFFLINE
+                   ================================================================ */
         .offline-section {
             border-top: 1px solid rgba(0, 255, 255, 0.03);
-            padding-top: 14px;
+            padding-top: 12px;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
@@ -687,29 +718,28 @@
 
         .btn-offline {
             background: linear-gradient(135deg, #4a3a8a, #2a1a5a);
-            border: 1px solid rgba(120, 100, 255, 0.08);
+            border: 1px solid rgba(120, 100, 255, 0.06);
             border-radius: 40px;
-            padding: 8px 24px;
-            font-size: 0.8rem;
+            padding: 7px 20px;
+            font-size: 0.75rem;
             font-weight: 600;
             color: #c8c0ff;
             cursor: pointer;
             transition: 0.3s;
             font-family: inherit;
-            box-shadow: 0 0 20px rgba(100, 60, 255, 0.02);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .btn-offline:hover {
             transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(100, 60, 255, 0.06);
+            box-shadow: 0 0 25px rgba(100, 60, 255, 0.05);
             background: linear-gradient(135deg, #5a4a9a, #3a2a6a);
         }
 
         .btn-offline i {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         body.light .btn-offline {
@@ -721,14 +751,16 @@
             background: linear-gradient(135deg, #6a5aaa, #4a3a7a);
         }
 
-        /* ===== FOOTER ===== */
+        /* ================================================================
+                   FOOTER
+                   ================================================================ */
         .footer {
             text-align: center;
             color: #4a5a7a;
-            font-size: 0.55rem;
-            padding: 10px 0 2px;
+            font-size: 0.5rem;
+            padding: 8px 0 0;
             border-top: 1px solid rgba(0, 255, 255, 0.02);
-            margin-top: 14px;
+            margin-top: 12px;
         }
 
         body.light .footer {
@@ -736,7 +768,9 @@
             color: #5a6a7a;
         }
 
-        /* ===== LOADING ===== */
+        /* ================================================================
+                   LOADING
+                   ================================================================ */
         #loadingOverlay {
             display: none;
             position: fixed;
@@ -750,7 +784,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
         }
 
         #loadingOverlay.show {
@@ -758,8 +792,8 @@
         }
 
         #loadingOverlay .spinner {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border: 3px solid rgba(255, 255, 255, 0.06);
             border-top-color: #8af0ff;
             border-radius: 50%;
@@ -774,7 +808,7 @@
 
         #loadingOverlay .load-text {
             color: #d0daff;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
@@ -786,7 +820,9 @@
             color: #1a1a3e;
         }
 
-        /* ===== MODAL ===== */
+        /* ================================================================
+                   MODAL
+                   ================================================================ */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -799,7 +835,7 @@
             z-index: 1000;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 16px;
         }
 
         .modal-overlay.show {
@@ -807,29 +843,27 @@
         }
 
         .modal-box {
-            background: rgba(8, 6, 22, 0.9);
+            background: rgba(8, 6, 22, 0.92);
             backdrop-filter: blur(14px);
-            border: 1px solid rgba(0, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 24px 28px 20px;
-            max-width: 500px;
+            border: 1px solid rgba(0, 255, 255, 0.06);
+            border-radius: 24px;
+            padding: 20px 24px 18px;
+            max-width: 480px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 0 60px rgba(0, 200, 255, 0.04);
         }
 
         body.light .modal-box {
-            background: rgba(255, 255, 255, 0.9);
-            border-color: rgba(0, 0, 0, 0.06);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+            background: rgba(255, 255, 255, 0.92);
+            border-color: rgba(0, 0, 0, 0.04);
         }
 
         .modal-box h3 {
             color: #c8c0ff;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
             text-align: center;
         }
 
@@ -839,80 +873,36 @@
 
         .modal-box .sub {
             color: #7a8aaa;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         body.light .modal-box .sub {
             color: #4a4a6a;
         }
 
-        .modal-box .day-selector {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 12px;
-        }
-
-        .modal-box .day-selector button {
-            padding: 4px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            background: rgba(255, 255, 255, 0.03);
-            color: #7a8aaa;
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: 0.2s;
-            font-family: inherit;
-        }
-
-        .modal-box .day-selector button:hover {
-            background: rgba(255, 255, 255, 0.06);
-            color: #d0daff;
-        }
-
-        .modal-box .day-selector button.active {
-            background: rgba(120, 80, 255, 0.15);
-            border-color: rgba(120, 80, 255, 0.2);
-            color: #c8c0ff;
-        }
-
-        body.light .modal-box .day-selector button {
-            color: #4a4a6a;
-            border-color: rgba(0, 0, 0, 0.06);
-            background: rgba(0, 0, 0, 0.02);
-        }
-
-        body.light .modal-box .day-selector button:hover {
-            background: rgba(0, 0, 0, 0.04);
-            color: #1a1a3e;
-        }
-
-        body.light .modal-box .day-selector button.active {
-            background: rgba(90, 74, 154, 0.1);
-            border-color: rgba(90, 74, 154, 0.2);
-            color: #1a1a3e;
-        }
-
-        .modal-box .time-row {
+        .modal-box .modal-row {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.8rem;
-            color: #9aa8d8;
-            flex-wrap: wrap;
             margin-bottom: 6px;
+            flex-wrap: wrap;
         }
 
-        body.light .modal-box .time-row {
+        .modal-box .modal-row label {
+            color: #9aa8d8;
+            font-size: 0.75rem;
+            min-width: 80px;
+        }
+
+        body.light .modal-box .modal-row label {
             color: #4a4a6a;
         }
 
-        .modal-box .time-row input[type="number"] {
-            width: 50px;
-            padding: 3px 4px;
+        .modal-box .modal-row input[type="number"] {
+            width: 60px;
+            padding: 3px 6px;
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.06);
             background: rgba(255, 255, 255, 0.03);
@@ -924,33 +914,33 @@
             transition: 0.2s;
         }
 
-        .modal-box .time-row input[type="number"]:focus {
+        .modal-box .modal-row input[type="number"]:focus {
             border-color: #7a8cff;
         }
 
-        body.light .modal-box .time-row input[type="number"] {
+        body.light .modal-box .modal-row input[type="number"] {
             color: #1a1a3e;
             border-color: rgba(0, 0, 0, 0.06);
             background: rgba(0, 0, 0, 0.02);
         }
 
-        .modal-box .time-row .range-label {
-            font-size: 0.7rem;
-            color: #7a8aaa;
+        .modal-box .modal-row .hint {
+            font-size: 0.6rem;
+            color: #5a6a8a;
         }
 
         .modal-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
             margin-top: 12px;
         }
 
         .modal-actions button {
-            padding: 6px 24px;
+            padding: 5px 20px;
             border-radius: 30px;
             border: none;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             cursor: pointer;
             transition: 0.25s;
@@ -960,7 +950,7 @@
         .modal-actions .btn-save {
             background: linear-gradient(135deg, #4a3a8a, #2a1a5a);
             color: #c8c0ff;
-            border: 1px solid rgba(120, 100, 255, 0.08);
+            border: 1px solid rgba(120, 100, 255, 0.06);
         }
 
         .modal-actions .btn-save:hover {
@@ -969,13 +959,13 @@
         }
 
         .modal-actions .btn-close {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.03);
             color: #7a8aaa;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.04);
         }
 
         .modal-actions .btn-close:hover {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.06);
         }
 
         body.light .modal-actions .btn-save {
@@ -990,79 +980,73 @@
         body.light .modal-actions .btn-close {
             background: rgba(0, 0, 0, 0.02);
             color: #4a4a6a;
-            border-color: rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 0, 0, 0.04);
         }
 
         body.light .modal-actions .btn-close:hover {
             background: rgba(0, 0, 0, 0.04);
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 520px) {
+        /* ================================================================
+                   RESPONSIVE
+                   ================================================================ */
+        @media (max-width: 480px) {
             .glass-card {
-                padding: 14px 12px 12px;
+                padding: 12px 10px 10px;
                 border-radius: 24px;
             }
             .header-center h1 {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
             .header-center .icon {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
             .logo-side {
-                flex: 0 0 50px;
+                flex: 0 0 45px;
             }
             .logo-side img {
-                width: 45px;
-                height: 45px;
+                width: 40px;
+                height: 40px;
             }
             .datetime-display {
-                padding: 6px 10px;
-                gap: 6px;
+                padding: 4px 8px;
+                gap: 4px;
             }
             .datetime-item {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
             .datetime-item .value {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
             .service-card .number-item .num {
-                font-size: 0.95rem;
+                font-size: 0.85rem;
             }
-            .service-totals .total-item .num {
+            .power-status-row {
                 font-size: 0.7rem;
+                padding: 3px 6px;
             }
-            .tool-card .emoji {
-                font-size: 1.4rem;
-            }
-            .tool-card h3 {
-                font-size: 0.75rem;
+            .power-status-row .timer {
+                font-size: 0.55rem;
+                padding: 0 6px;
             }
             .btn-offline {
-                padding: 6px 16px;
-                font-size: 0.7rem;
-            }
-            .power-status {
-                font-size: 0.75rem;
-                padding: 4px 10px;
-            }
-            .modal-box {
-                padding: 18px 16px;
+                padding: 5px 14px;
+                font-size: 0.65rem;
             }
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 380px) {
             .header {
                 flex-direction: column;
                 align-items: center;
-                gap: 4px;
+                gap: 2px;
             }
             .logo-side {
                 flex: 0 0 auto;
             }
             .logo-side img {
-                width: 40px;
-                height: 40px;
+                width: 35px;
+                height: 35px;
             }
         }
     </style>
@@ -1083,7 +1067,7 @@
 
         <button class="theme-toggle" id="themeToggle">🌙</button>
 
-        <!-- HEADER -->
+        <!-- ===== HEADER ===== -->
         <div class="header">
             <div class="logo-side">
                 <img src="مرخصی/Seal_of_the_Islamic_Republic_of_Iran_Army.svg.webp" alt="لوگوی ارتش" id="logoRight" onerror="this.style.display='none'">
@@ -1098,7 +1082,7 @@
             </div>
         </div>
 
-        <!-- DATE & TIME -->
+        <!-- ===== DATE & TIME ===== -->
         <div class="datetime-display" id="datetimeDisplay">
             <div class="datetime-item">
                 <i class="fas fa-calendar-alt"></i>
@@ -1117,70 +1101,86 @@
             </div>
         </div>
 
-        <!-- TOP GRID -->
-        <div class="top-grid">
-
-            <!-- SERVICE CARDS -->
-            <div>
-                <div class="service-card" style="margin-bottom:10px;">
-                    <div class="label"><i class="fas fa-hourglass-start"></i> مدت خدمت انجام‌شده</div>
-                    <div class="numbers">
-                        <div class="number-item"><span class="num" id="servedMonths">--</span><span class="unit">ماه</span>
-                        </div>
-                        <div class="number-item"><span class="num" id="servedDays">--</span><span class="unit">روز</span>
-                        </div>
-                        <div class="number-item"><span class="num" id="servedHours">--</span><span class="unit">ساعت</span>
-                        </div>
-                    </div>
-                    <div class="service-totals">
-                        <div class="total-item"><span>مجموع:</span><span class="num" id="servedTotalDays">--</span><span>روز</span><span style="margin:0 4px;">|</span><span class="num" id="servedTotalHours">--</span><span>ساعت</span>
-                        </div>
-                    </div>
+        <!-- ===== SERVICE SECTION ===== -->
+        <div class="service-section">
+            <div class="service-card">
+                <div class="label"><i class="fas fa-hourglass-start"></i> مدت خدمت انجام‌شده</div>
+                <div class="numbers">
+                    <div class="number-item"><span class="num" id="servedMonths">--</span><span class="unit">ماه</span></div>
+                    <div class="number-item"><span class="num" id="servedDays">--</span><span class="unit">روز</span></div>
+                    <div class="number-item"><span class="num" id="servedHours">--</span><span class="unit">ساعت</span></div>
                 </div>
-                <div class="service-card">
-                    <div class="label"><i class="fas fa-hourglass-end"></i> زمان باقی‌مانده تا پایان خدمت</div>
-                    <div class="numbers">
-                        <div class="number-item"><span class="num" id="remainingMonths">--</span><span class="unit">ماه</span>
-                        </div>
-                        <div class="number-item"><span class="num" id="remainingDays">--</span><span class="unit">روز</span>
-                        </div>
-                        <div class="number-item"><span class="num" id="remainingHours">--</span><span class="unit">ساعت</span>
-                        </div>
-                    </div>
-                    <div class="service-totals">
-                        <div class="total-item"><span>مجموع:</span><span class="num" id="remainingTotalDays">--</span><span>روز</span><span style="margin:0 4px;">|</span><span class="num" id="remainingTotalHours">--</span><span>ساعت</span>
-                        </div>
-                    </div>
+                <div class="service-totals">
+                    <div class="total-item"><span>مجموع:</span><span class="num" id="servedTotalDays">--</span><span>روز</span><span style="margin:0 4px;">|</span><span class="num" id="servedTotalHours">--</span><span>ساعت</span></div>
                 </div>
             </div>
+            <div class="service-card">
+                <div class="label"><i class="fas fa-hourglass-end"></i> زمان باقی‌مانده تا پایان خدمت</div>
+                <div class="numbers">
+                    <div class="number-item"><span class="num" id="remainingMonths">--</span><span class="unit">ماه</span></div>
+                    <div class="number-item"><span class="num" id="remainingDays">--</span><span class="unit">روز</span></div>
+                    <div class="number-item"><span class="num" id="remainingHours">--</span><span class="unit">ساعت</span></div>
+                </div>
+                <div class="service-totals">
+                    <div class="total-item"><span>مجموع:</span><span class="num" id="remainingTotalDays">--</span><span>روز</span><span style="margin:0 4px;">|</span><span class="num" id="remainingTotalHours">--</span><span>ساعت</span></div>
+                </div>
+            </div>
+        </div>
 
-            <!-- POWER CARD -->
-            <div class="power-card">
-                <div class="label">
-                    <i class="fas fa-bolt"></i>
-                    وضعیت برق امروز
-                    <button class="power-edit-btn" id="powerEditBtn">
+        <!-- ===== POWER GRID ===== -->
+        <div class="power-grid">
+
+            <!-- کارت برق مدیریت اسلحه -->
+            <div class="power-card" id="powerCardWeapon">
+                <div class="power-header">
+                    <div class="power-label">
+                        <i class="fas fa-bolt" style="color:#f5a623;"></i>
+                        برق مدیریت اسلحه
+                        <span class="badge">امروز</span>
+                    </div>
+                    <button class="power-edit-btn" data-target="weapon">
                         <i class="fas fa-pen"></i> ویرایش
                     </button>
                 </div>
-
-                <div class="power-status" id="powerStatus">
-                    <span class="dot" id="powerDot"></span>
-                    <span class="status-text" id="powerStatusText">در حال بررسی...</span>
-                    <span class="countdown" id="powerCountdown">--</span>
+                <div class="power-status-row">
+                    <span class="dot" id="weaponDot"></span>
+                    <span class="status-text" id="weaponStatusText">در حال بررسی...</span>
+                    <span class="timer" id="weaponTimer">--:--</span>
                 </div>
-
-                <div class="power-times" id="powerTimes"></div>
-
+                <div class="power-times" id="weaponTimes"></div>
                 <div class="power-hint">
                     <i class="fas fa-info-circle"></i>
-                    قطع برق روزانه: ۲ ساعت (شیفت روزانه ۲ ساعت جلوتر)
+                    قطع: <span id="weaponOffTime">۱۱:۰۰ - ۱۳:۰۰</span>
+                </div>
+            </div>
+
+            <!-- کارت برق خانه -->
+            <div class="power-card" id="powerCardHome">
+                <div class="power-header">
+                    <div class="power-label">
+                        <i class="fas fa-home" style="color:#60a5fa;"></i>
+                        برق خانه
+                        <span class="badge">امروز</span>
+                    </div>
+                    <button class="power-edit-btn" data-target="home">
+                        <i class="fas fa-pen"></i> ویرایش
+                    </button>
+                </div>
+                <div class="power-status-row">
+                    <span class="dot" id="homeDot"></span>
+                    <span class="status-text" id="homeStatusText">در حال بررسی...</span>
+                    <span class="timer" id="homeTimer">--:--</span>
+                </div>
+                <div class="power-times" id="homeTimes"></div>
+                <div class="power-hint">
+                    <i class="fas fa-info-circle"></i>
+                    قطع: <span id="homeOffTime">۱۷:۰۰ - ۱۹:۰۰</span>
                 </div>
             </div>
 
         </div>
 
-        <!-- PROGRESS -->
+        <!-- ===== PROGRESS ===== -->
         <div class="progress-section">
             <div class="progress-header">
                 <span>پیشرفت خدمت سربازی</span>
@@ -1195,7 +1195,7 @@
             </div>
         </div>
 
-        <!-- TOOLS -->
+        <!-- ===== TOOLS ===== -->
         <div class="tools-grid">
             <a href="JavazRenewal.html" class="tool-card">
                 <span class="emoji">💰</span>
@@ -1209,10 +1209,10 @@
             </a>
         </div>
 
-        <!-- OFFLINE -->
+        <!-- ===== OFFLINE ===== -->
         <div class="offline-section">
             <button class="btn-offline" id="offlineBtn">
-                <i class="fas fa-download"></i> دانلود آفلاین (کل سایت)
+                <i class="fas fa-download"></i> دانلود آفلاین
             </button>
         </div>
 
@@ -1222,24 +1222,23 @@
 
     </div>
 
-    <!-- ===== MODAL ===== -->
+    <!-- ================================================================
+    MODAL
+    ================================================================ -->
     <div class="modal-overlay" id="powerModal">
         <div class="modal-box">
-            <h3>⚡ ویرایش زمان قطع برق</h3>
-            <div class="sub">تنظیم ساعت شروع قطع برق (۲ ساعته) برای روز انتخاب‌شده</div>
+            <h3 id="modalTitle">⚡ ویرایش زمان قطع برق</h3>
+            <div class="sub" id="modalSub">تغییر ساعت قطع برق برای امروز</div>
 
-            <div class="day-selector" id="daySelector">
-                <!-- توسط JS پر می‌شود -->
+            <div class="modal-row">
+                <label>ساعت شروع قطع:</label>
+                <input type="number" id="modalStartHour" min="0" max="23" value="11">
+                <span class="hint">(۰ تا ۲۳)</span>
             </div>
-
-            <div class="time-row">
-                <span>ساعت شروع قطع برق در روز انتخاب‌شده:</span>
-                <input type="number" id="modalOffsetInput" min="0" max="23" value="11">
-                <span class="range-label">(۰ تا ۲۳)</span>
-            </div>
-
-            <div style="font-size:0.7rem; color:#7a8aaa; text-align:center; margin-top:4px;">
-                روزهای بعد: +۲ ساعت به ازای هر روز (قطع ۲ ساعته)
+            <div class="modal-row">
+                <label>ساعت پایان قطع:</label>
+                <input type="number" id="modalEndHour" min="0" max="23" value="13">
+                <span class="hint">(۰ تا ۲۳)</span>
             </div>
 
             <div class="modal-actions">
@@ -1261,8 +1260,8 @@
             const canvas = document.getElementById('starCanvas');
             const ctx = canvas.getContext('2d');
             let stars = [];
-            const NUM_STARS = 180,
-                MAX_SPEED = 0.3;
+            const NUM_STARS = 150,
+                MAX_SPEED = 0.25;
             let width, height;
 
             function resize() {
@@ -1278,24 +1277,24 @@
                     stars.push({
                         x: Math.random() * width,
                         y: Math.random() * height,
-                        radius: Math.random() * 1.5 + 0.5,
+                        radius: Math.random() * 1.5 + 0.4,
                         speedX: (Math.random() - 0.5) * MAX_SPEED * 1.5,
                         speedY: (Math.random() - 0.5) * MAX_SPEED * 1.5,
-                        opacity: Math.random() * 0.6 + 0.2,
-                        twinkle: Math.random() * 0.02 + 0.01,
+                        opacity: Math.random() * 0.5 + 0.2,
+                        twinkle: Math.random() * 0.02 + 0.005,
                     });
                 }
             }
 
             function drawStars(time) {
                 ctx.clearRect(0, 0, width, height);
-                const g1 = ctx.createRadialGradient(width * 0.3, height * 0.2, 0, width * 0.3, height * 0.2, width * 0.6);
-                g1.addColorStop(0, 'rgba(60,30,120,0.03)');
+                const g1 = ctx.createRadialGradient(width * 0.3, height * 0.2, 0, width * 0.3, height * 0.2, width * 0.5);
+                g1.addColorStop(0, 'rgba(60,30,120,0.02)');
                 g1.addColorStop(1, 'rgba(0,0,0,0)');
                 ctx.fillStyle = g1;
                 ctx.fillRect(0, 0, width, height);
-                const g2 = ctx.createRadialGradient(width * 0.7, height * 0.8, 0, width * 0.7, height * 0.8, width * 0.5);
-                g2.addColorStop(0, 'rgba(20,60,120,0.03)');
+                const g2 = ctx.createRadialGradient(width * 0.7, height * 0.8, 0, width * 0.7, height * 0.8, width * 0.4);
+                g2.addColorStop(0, 'rgba(20,60,120,0.02)');
                 g2.addColorStop(1, 'rgba(0,0,0,0)');
                 ctx.fillStyle = g2;
                 ctx.fillRect(0, 0, width, height);
@@ -1316,7 +1315,7 @@
                     if (star.radius > 1.2) {
                         ctx.beginPath();
                         ctx.arc(star.x, star.y, star.radius * 2.5, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(150,180,255,${opacity * 0.08})`;
+                        ctx.fillStyle = `rgba(150,180,255,${opacity * 0.06})`;
                         ctx.fill();
                     }
                 }
@@ -1422,83 +1421,120 @@
         ];
 
         // ================================================================
-        // 3. POWER LOGIC — یک بار قطع ۲ ساعته در روز
+        // 3. POWER SYSTEM — ساده و پایدار
         // ================================================================
 
-        const STORAGE_KEY = 'power_base_v2';
+        const STORAGE_KEY = 'power_schedule_v2';
 
-        function getPowerBase() {
+        // ساختار پیش‌فرض برای هر بخش
+        function getDefaultSchedule() {
+            return {
+                weapon: { start: 11, end: 13 }, // ۱۱ تا ۱۳
+                home: { start: 17, end: 19 } // ۱۷ تا ۱۹
+            };
+        }
+
+        function getPowerSchedule() {
             try {
                 const raw = localStorage.getItem(STORAGE_KEY);
                 if (raw) {
                     const data = JSON.parse(raw);
-                    if (data && typeof data === 'object' && data.date && typeof data.offset === 'number') {
+                    if (data && typeof data === 'object') {
+                        // اطمینان از وجود هر دو بخش
+                        if (!data.weapon) data.weapon = { start: 11, end: 13 };
+                        if (!data.home) data.home = { start: 17, end: 19 };
                         return data;
                     }
                 }
             } catch (e) {}
-            const now = new Date();
-            const [jy, jm, jd] = gregorianToJalali(now.getFullYear(), now.getMonth() + 1, now.getDate());
-            const key = `${jy}-${String(jm).padStart(2,'0')}-${String(jd).padStart(2,'0')}`;
-            return { date: key, offset: 11 }; // پیش‌فرض: ۱۱ صبح
+            return getDefaultSchedule();
         }
 
-        function savePowerBase(base) {
+        function savePowerSchedule(schedule) {
             try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(base));
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(schedule));
             } catch (e) {}
         }
 
-        function getOffsetForDate(targetKey) {
-            const base = getPowerBase();
-            const baseKey = base.date;
-            const baseOffset = base.offset;
-
-            const [bY, bM, bD] = baseKey.split('-').map(Number);
-            const [tY, tM, tD] = targetKey.split('-').map(Number);
-
-            const [gB1, gB2, gB3] = jalaliToGregorian(bY, bM, bD);
-            const [gT1, gT2, gT3] = jalaliToGregorian(tY, tM, tD);
-
-            const d1 = new Date(gB1, gB2 - 1, gB3);
-            const d2 = new Date(gT1, gT2 - 1, gT3);
-
-            const diffDays = Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
-
-            let offset = (baseOffset + diffDays * 2) % 24;
-            if (offset < 0) offset += 24;
-            return offset;
+        function getOffTime(type) {
+            const schedule = getPowerSchedule();
+            return schedule[type] || { start: 11, end: 13 };
         }
 
-        function getOffTimeForDate(targetKey) {
-            const offset = getOffsetForDate(targetKey);
-            const start = offset % 24;
-            const end = (start + 2) % 24;
-            return { start, end };
+        function setOffTime(type, start, end) {
+            const schedule = getPowerSchedule();
+            schedule[type] = { start, end };
+            savePowerSchedule(schedule);
         }
 
-        function setOffsetForDate(targetKey, newOffset) {
+        // ================================================================
+        // 4. POWER STATUS CHECK
+        // ================================================================
+
+        function checkPowerStatus(type) {
             const now = new Date();
-            const [jy, jm, jd] = gregorianToJalali(now.getFullYear(), now.getMonth() + 1, now.getDate());
-            const todayKey = `${jy}-${String(jm).padStart(2,'0')}-${String(jd).padStart(2,'0')}`;
+            const currentHour = now.getHours();
+            const currentMinute = now.getMinutes();
 
-            const [bY, bM, bD] = targetKey.split('-').map(Number);
-            const [gB1, gB2, gB3] = jalaliToGregorian(bY, bM, bD);
-            const [gT1, gT2, gT3] = jalaliToGregorian(jy, jm, jd);
+            const offTime = getOffTime(type);
+            let s = offTime.start;
+            let e = offTime.end;
 
-            const d1 = new Date(gB1, gB2 - 1, gB3);
-            const d2 = new Date(gT1, gT2 - 1, gT3);
-            const diffDays = Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
+            // مدیریت بازه‌های شب (اگر end < start)
+            let isOff = false;
+            let nextChangeMinutes = 0;
 
-            let baseOffset = (newOffset - diffDays * 2) % 24;
-            if (baseOffset < 0) baseOffset += 24;
+            if (e < s) {
+                // بازه شب: مثلاً 23 تا 1
+                if (currentHour >= s || currentHour < e) {
+                    isOff = true;
+                    // زمان تا پایان قطع
+                    let endHour = e;
+                    let endMin = 0;
+                    let diff = (endHour - currentHour) * 60 - currentMinute;
+                    if (diff < 0) diff += 24 * 60;
+                    nextChangeMinutes = diff;
+                } else {
+                    // زمان تا شروع قطع بعدی
+                    let startHour = s;
+                    let diff = (startHour - currentHour) * 60 - currentMinute;
+                    if (diff < 0) diff += 24 * 60;
+                    nextChangeMinutes = diff;
+                }
+            } else {
+                if (currentHour >= s && currentHour < e) {
+                    isOff = true;
+                    let diff = (e - currentHour) * 60 - currentMinute;
+                    if (diff < 0) diff += 24 * 60;
+                    nextChangeMinutes = diff;
+                } else {
+                    let startHour = s;
+                    let diff = (startHour - currentHour) * 60 - currentMinute;
+                    if (diff < 0) diff += 24 * 60;
+                    nextChangeMinutes = diff;
+                }
+            }
 
-            savePowerBase({ date: targetKey, offset: baseOffset });
+            return {
+                isOff,
+                nextChangeMinutes,
+                offTime: { start: s, end: e },
+                currentHour,
+                currentMinute
+            };
+        }
+
+        function formatMinutes(minutes) {
+            if (minutes >= 24 * 60) minutes -= 24 * 60;
+            const h = Math.floor(minutes / 60);
+            const m = minutes % 60;
+            return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0');
         }
 
         // ================================================================
-        // 4. UPDATE PAGE
+        // 5. UPDATE PAGE
         // ================================================================
+
         const START_DATE = { year: 1404, month: 6, day: 1, hour: 8 };
         const END_DATE = { year: 1406, month: 3, day: 2, hour: 14 };
 
@@ -1513,11 +1549,12 @@
             const m = String(now.getMinutes()).padStart(2, '0');
             const s = String(now.getSeconds()).padStart(2, '0');
 
+            // ===== DATE & TIME =====
             document.getElementById('jalaliDate').textContent = `${jd} ${monthNames[jm-1]} ${jy}`;
             document.getElementById('jalaliTime').textContent = `${h}:${m}:${s}`;
             document.getElementById('weekday').textContent = weekday;
 
-            // Service
+            // ===== SERVICE =====
             const served = diffJalaliWithTime(START_DATE.year, START_DATE.month, START_DATE.day, START_DATE.hour,
                 jy, jm, jd, now.getHours());
             document.getElementById('servedMonths').textContent = served.months;
@@ -1534,6 +1571,7 @@
             document.getElementById('remainingTotalDays').textContent = remaining.totalDays.toLocaleString('fa-IR');
             document.getElementById('remainingTotalHours').textContent = remaining.totalHours.toLocaleString('fa-IR');
 
+            // ===== PROGRESS =====
             const total = diffJalaliWithTime(START_DATE.year, START_DATE.month, START_DATE.day, START_DATE.hour,
                 END_DATE.year, END_DATE.month, END_DATE.day, END_DATE.hour);
             let percent = 0;
@@ -1543,153 +1581,121 @@
             document.getElementById('progressPercent').textContent = percent + '%';
             document.getElementById('progressBar').style.width = percent + '%';
 
-            // ===== POWER =====
-            const todayKey = `${jy}-${String(jm).padStart(2,'0')}-${String(jd).padStart(2,'0')}`;
-            const offTime = getOffTimeForDate(todayKey);
-            const currentHour = now.getHours();
-            const currentMinute = now.getMinutes();
-            const currentTotalMin = currentHour * 60 + currentMinute;
+            // ===== POWER — WEAPON =====
+            updatePowerStatus('weapon', 'weaponDot', 'weaponStatusText', 'weaponTimer', 'weaponTimes', 'weaponOffTime');
 
-            let s = offTime.start,
-                e = offTime.end;
-            // مدیریت بازه شب
-            let startMin = s * 60;
-            let endMin = e * 60;
-            if (e < s) {
-                // بازه شب: مثلاً 23 تا 1
-                endMin += 24 * 60;
-            }
+            // ===== POWER — HOME =====
+            updatePowerStatus('home', 'homeDot', 'homeStatusText', 'homeTimer', 'homeTimes', 'homeOffTime');
+        }
 
-            let isOff = false;
-            let totalMinNow = currentTotalMin;
-            if (endMin < startMin) {
-                // بازه شب
-                if (currentHour >= s || currentHour < e) {
-                    isOff = true;
-                }
-            } else {
-                if (currentHour >= s && currentHour < e) {
-                    isOff = true;
-                }
-            }
+        function updatePowerStatus(type, dotId, statusId, timerId, timesId, offTimeId) {
+            const status = checkPowerStatus(type);
+            const offTime = getOffTime(type);
 
-            // محاسبه زمان تا تغییر بعدی
-            let nextChangeMin = 0;
-            if (isOff) {
-                // برق قطع است — زمان تا وصل شدن
-                let targetMin = endMin;
-                if (targetMin <= currentTotalMin) targetMin += 24 * 60;
-                nextChangeMin = targetMin - currentTotalMin;
-            } else {
-                // برق وصل است — زمان تا قطع شدن
-                let targetMin = startMin;
-                if (targetMin <= currentTotalMin) targetMin += 24 * 60;
-                nextChangeMin = targetMin - currentTotalMin;
-            }
+            // Dot & Status
+            const dot = document.getElementById(dotId);
+            const statusText = document.getElementById(statusId);
 
-            const hoursLeft = Math.floor(nextChangeMin / 60);
-            const minsLeft = nextChangeMin % 60;
-
-            // نمایش وضعیت
-            const dot = document.getElementById('powerDot');
-            const statusText = document.getElementById('powerStatusText');
-            const countdownEl = document.getElementById('powerCountdown');
-
-            if (isOff) {
+            if (status.isOff) {
                 dot.className = 'dot off';
-                statusText.textContent = '🔴 برق قطع است';
+                statusText.textContent = '🔴 قطع است';
                 statusText.style.color = '#f87171';
-                countdownEl.textContent = `⏳ ${hoursLeft} ساعت ${minsLeft} دقیقه تا وصل`;
             } else {
                 dot.className = 'dot on';
-                statusText.textContent = '🟢 برق وصل است';
+                statusText.textContent = '🟢 وصل است';
                 statusText.style.color = '#4ade80';
-                countdownEl.textContent = `⏳ ${hoursLeft} ساعت ${minsLeft} دقیقه تا قطع`;
             }
 
-            // نمایش بازه قطع
-            const container = document.getElementById('powerTimes');
+            // Timer
+            const timer = document.getElementById(timerId);
+            const nextChange = formatMinutes(status.nextChangeMinutes);
+            timer.textContent = status.isOff ? `⏳ ${nextChange}` : `⏳ ${nextChange}`;
+
+            // Times list (فقط یک بازه)
+            const container = document.getElementById(timesId);
             container.innerHTML = '';
+            const s = offTime.start;
+            const e = offTime.end;
             const startStr = String(s).padStart(2, '0');
             const endStr = String(e).padStart(2, '0');
             const tag = document.createElement('span');
-            tag.className = 'time-tag' + (isOff ? ' active' : '');
-            tag.textContent = `🔴 ${startStr}:۰۰ - ${endStr}:۰۰`;
+            tag.className = 'time-tag' + (status.isOff ? ' active' : '');
+            tag.textContent = `${startStr}:۰۰ - ${endStr}:۰۰`;
             container.appendChild(tag);
+
+            // Off time hint
+            document.getElementById(offTimeId).textContent = `${startStr}:۰۰ - ${endStr}:۰۰`;
         }
 
         // ================================================================
-        // 5. MODAL
+        // 6. MODAL
         // ================================================================
-        let modalTargetKey = '';
 
-        function openModal() {
-            const now = new Date();
-            const [jy, jm, jd] = gregorianToJalali(now.getFullYear(), now.getMonth() + 1, now.getDate());
-            const todayKey = `${jy}-${String(jm).padStart(2,'0')}-${String(jd).padStart(2,'0')}`;
-            modalTargetKey = todayKey;
+        let modalTarget = 'weapon';
 
-            const daySelector = document.getElementById('daySelector');
-            daySelector.innerHTML = '';
-            const days = [
-                { label: 'امروز', key: todayKey },
-                { label: 'فردا', key: `${jy}-${String(jm).padStart(2,'0')}-${String(jd+1).padStart(2,'0')}` },
-                { label: 'پس‌فردا', key: `${jy}-${String(jm).padStart(2,'0')}-${String(jd+2).padStart(2,'0')}` },
-            ];
-            for (const d of days) {
-                const btn = document.createElement('button');
-                btn.textContent = d.label;
-                btn.dataset.key = d.key;
-                if (d.key === modalTargetKey) btn.classList.add('active');
-                btn.addEventListener('click', function() {
-                    daySelector.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    modalTargetKey = this.dataset.key;
-                    loadOffsetToModal();
-                });
-                daySelector.appendChild(btn);
-            }
+        function openModal(target) {
+            modalTarget = target;
+            const offTime = getOffTime(target);
+            const title = target === 'weapon' ? 'برق مدیریت اسلحه' : 'برق خانه';
 
-            loadOffsetToModal();
+            document.getElementById('modalTitle').textContent = `⚡ ویرایش زمان قطع - ${title}`;
+            document.getElementById('modalSub').textContent = 'تغییر ساعت قطع برق برای امروز';
+            document.getElementById('modalStartHour').value = offTime.start;
+            document.getElementById('modalEndHour').value = offTime.end;
+
             document.getElementById('powerModal').classList.add('show');
         }
 
-        function loadOffsetToModal() {
-            const offset = getOffsetForDate(modalTargetKey);
-            document.getElementById('modalOffsetInput').value = offset;
-        }
-
         function saveModal() {
-            const val = parseInt(document.getElementById('modalOffsetInput').value);
-            if (isNaN(val) || val < 0 || val > 23) {
-                alert('لطفاً یک عدد بین ۰ تا ۲۳ وارد کنید.');
+            const start = parseInt(document.getElementById('modalStartHour').value);
+            const end = parseInt(document.getElementById('modalEndHour').value);
+
+            if (isNaN(start) || isNaN(end) || start < 0 || start > 23 || end < 0 || end > 23) {
+                alert('لطفاً ساعت‌ها را بین ۰ تا ۲۳ وارد کنید.');
                 return;
             }
-            setOffsetForDate(modalTargetKey, val);
+
+            if (start === end) {
+                alert('ساعت شروع و پایان نمی‌توانند برابر باشند.');
+                return;
+            }
+
+            setOffTime(modalTarget, start, end);
             document.getElementById('powerModal').classList.remove('show');
             updatePage();
         }
 
         // ================================================================
-        // 6. EVENTS
+        // 7. EVENTS
         // ================================================================
-        document.getElementById('powerEditBtn').addEventListener('click', openModal);
+
+        document.querySelectorAll('.power-edit-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const target = this.dataset.target;
+                openModal(target);
+            });
+        });
+
         document.getElementById('modalCloseBtn').addEventListener('click', () => {
             document.getElementById('powerModal').classList.remove('show');
         });
+
         document.getElementById('modalSaveBtn').addEventListener('click', saveModal);
+
         document.getElementById('powerModal').addEventListener('click', (e) => {
             if (e.target === e.currentTarget) e.currentTarget.classList.remove('show');
         });
 
+        // Theme
         document.getElementById('themeToggle').addEventListener('click', function() {
             document.body.classList.toggle('light');
             this.textContent = document.body.classList.contains('light') ? '🌓' : '🌙';
         });
 
         // ================================================================
-        // 7. OFFLINE DOWNLOAD
+        // 8. OFFLINE DOWNLOAD
         // ================================================================
+
         document.getElementById('offlineBtn').addEventListener('click', async function() {
             const overlay = document.getElementById('loadingOverlay');
             overlay.classList.add('show');
@@ -1738,8 +1744,9 @@
         });
 
         // ================================================================
-        // 8. RUN
+        // 9. RUN
         // ================================================================
+
         updatePage();
         setInterval(updatePage, 1000);
     </script>
