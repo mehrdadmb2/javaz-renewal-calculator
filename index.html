@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ابزارهای مدیریت اسلحه و مهمات · ارتش شیراز</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت اسلحه و مهمات · ارتش شیراز</title>
 
-    <!-- ===== Font & Icons ===== -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
@@ -35,12 +35,12 @@
         /* ===== GLASS CARD ===== */
         .glass-card {
             width: 100%;
-            max-width: 820px;
+            max-width: 880px;
             background: rgba(8, 6, 22, 0.75);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             border-radius: 40px;
-            padding: 32px 30px 26px;
+            padding: 28px 30px 22px;
             border: 1px solid rgba(0, 255, 255, 0.08);
             box-shadow: 0 0 40px rgba(0, 200, 255, 0.04), 0 0 80px rgba(100, 0, 255, 0.03);
             transition: all 0.3s ease;
@@ -57,8 +57,8 @@
         /* ===== THEME TOGGLE ===== */
         .theme-toggle {
             position: absolute;
-            top: 18px;
-            left: 18px;
+            top: 16px;
+            left: 16px;
             background: rgba(0, 200, 255, 0.06);
             border: 1px solid rgba(0, 255, 255, 0.1);
             border-radius: 40px;
@@ -88,9 +88,9 @@
         /* ===== HEADER ===== */
         .header {
             text-align: center;
-            border-bottom: 3px solid rgba(0, 255, 255, 0.08);
-            padding-bottom: 16px;
-            margin-bottom: 24px;
+            border-bottom: 3px solid rgba(0, 255, 255, 0.06);
+            padding-bottom: 14px;
+            margin-bottom: 20px;
         }
 
         body.light .header {
@@ -98,21 +98,21 @@
         }
 
         .header .icon {
-            font-size: 2.8rem;
-            filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.15));
-            margin-bottom: 4px;
+            font-size: 2.6rem;
+            filter: drop-shadow(0 0 20px rgba(0, 200, 255, 0.12));
+            margin-bottom: 2px;
         }
 
         .header h1 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #c8c0ff;
-            text-shadow: 0 0 30px rgba(120, 80, 255, 0.1);
+            text-shadow: 0 0 30px rgba(120, 80, 255, 0.08);
             letter-spacing: 0.5px;
         }
 
         .header .sub {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #7a8aaa;
             font-weight: 400;
             margin-top: 2px;
@@ -127,12 +127,236 @@
             color: #4a4a6a;
         }
 
+        /* ===== DATE & TIME DISPLAY ===== */
+        .datetime-display {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.04);
+        }
+
+        body.light .datetime-display {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(0, 0, 0, 0.04);
+        }
+
+        .datetime-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #9aa8d8;
+            font-size: 0.9rem;
+        }
+
+        .datetime-item i {
+            color: #7a8cff;
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .datetime-item .value {
+            color: #d0daff;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        body.light .datetime-item {
+            color: #4a4a6a;
+        }
+
+        body.light .datetime-item .value {
+            color: #1a1a3e;
+        }
+
+        body.light .datetime-item i {
+            color: #5a4a9a;
+        }
+
+        /* ===== SERVICE COUNTER ===== */
+        .service-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .service-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 16px 18px;
+            transition: 0.3s;
+        }
+
+        body.light .service-card {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(0, 0, 0, 0.04);
+        }
+
+        .service-card .label {
+            font-size: 0.75rem;
+            color: #7a8aaa;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .service-card .label i {
+            color: #7a8cff;
+            font-size: 0.8rem;
+        }
+
+        body.light .service-card .label {
+            color: #4a4a6a;
+        }
+
+        body.light .service-card .label i {
+            color: #5a4a9a;
+        }
+
+        .service-card .numbers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            margin-top: 2px;
+        }
+
+        .service-card .number-item {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .service-card .number-item .num {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #d0daff;
+            text-shadow: 0 0 15px rgba(120, 80, 255, 0.05);
+        }
+
+        .service-card .number-item .unit {
+            font-size: 0.7rem;
+            color: #7a8aaa;
+        }
+
+        body.light .service-card .number-item .num {
+            color: #1a1a3e;
+            text-shadow: none;
+        }
+
+        body.light .service-card .number-item .unit {
+            color: #4a4a6a;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-section {
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 14px 18px;
+            border: 1px solid rgba(0, 255, 255, 0.04);
+        }
+
+        body.light .progress-section {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 0, 0, 0.04);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #7a8aaa;
+            margin-bottom: 6px;
+        }
+
+        body.light .progress-header {
+            color: #4a4a6a;
+        }
+
+        .progress-header .percentage {
+            color: #8af0ff;
+            font-weight: 600;
+        }
+
+        body.light .progress-header .percentage {
+            color: #5a4a9a;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body.light .progress-track {
+            background: rgba(0, 0, 0, 0.06);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #7a8cff, #8af0ff);
+            border-radius: 20px;
+            transition: width 0.5s ease;
+            width: 0%;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .progress-dates {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.65rem;
+            color: #5a6a8a;
+            margin-top: 4px;
+        }
+
+        body.light .progress-dates {
+            color: #5a6a7a;
+        }
+
         /* ===== TOOLS GRID ===== */
         .tools-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-bottom: 24px;
+            gap: 14px;
+            margin-bottom: 18px;
         }
 
         @media (max-width: 600px) {
@@ -144,8 +368,8 @@
         .tool-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(0, 255, 255, 0.06);
-            border-radius: 24px;
-            padding: 22px 20px 20px;
+            border-radius: 20px;
+            padding: 18px 16px 16px;
             text-align: center;
             transition: 0.3s;
             cursor: pointer;
@@ -157,39 +381,39 @@
         .tool-card:hover {
             background: rgba(255, 255, 255, 0.06);
             border-color: rgba(0, 200, 255, 0.2);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 200, 255, 0.05);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 200, 255, 0.04);
         }
 
         body.light .tool-card {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(0, 0, 0, 0.06);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(0, 0, 0, 0.04);
         }
 
         body.light .tool-card:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(0, 0, 0, 0.12);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(0, 0, 0, 0.1);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
         }
 
         .tool-card .emoji {
-            font-size: 2.6rem;
+            font-size: 2.2rem;
             display: block;
-            margin-bottom: 8px;
-            filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.08));
+            margin-bottom: 4px;
+            filter: drop-shadow(0 0 15px rgba(0, 200, 255, 0.06));
         }
 
         .tool-card h3 {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: #d0daff;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .tool-card p {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #7a8aaa;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         body.light .tool-card h3 {
@@ -202,29 +426,30 @@
 
         /* ===== OFFLINE BUTTON ===== */
         .offline-section {
-            border-top: 1px solid rgba(0, 255, 255, 0.06);
-            padding-top: 18px;
-            margin-top: 6px;
+            border-top: 1px solid rgba(0, 255, 255, 0.04);
+            padding-top: 16px;
             display: flex;
             justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         body.light .offline-section {
-            border-top-color: rgba(0, 0, 0, 0.06);
+            border-top-color: rgba(0, 0, 0, 0.04);
         }
 
         .btn-offline {
             background: linear-gradient(135deg, #4a3a8a, #2a1a5a);
             border: 1px solid rgba(120, 100, 255, 0.12);
             border-radius: 40px;
-            padding: 12px 32px;
-            font-size: 0.95rem;
+            padding: 10px 28px;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #c8c0ff;
             cursor: pointer;
             transition: 0.3s;
             font-family: inherit;
-            box-shadow: 0 0 25px rgba(100, 60, 255, 0.05);
+            box-shadow: 0 0 25px rgba(100, 60, 255, 0.04);
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -232,12 +457,12 @@
 
         .btn-offline:hover {
             transform: scale(1.03);
-            box-shadow: 0 0 35px rgba(100, 60, 255, 0.15);
+            box-shadow: 0 0 35px rgba(100, 60, 255, 0.12);
             background: linear-gradient(135deg, #5a4a9a, #3a2a6a);
         }
 
         .btn-offline i {
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         body.light .btn-offline {
@@ -253,39 +478,15 @@
         .footer {
             text-align: center;
             color: #4a5a7a;
-            font-size: 0.65rem;
-            padding: 14px 0 2px;
-            border-top: 1px solid rgba(0, 255, 255, 0.04);
-            margin-top: 18px;
+            font-size: 0.6rem;
+            padding: 12px 0 2px;
+            border-top: 1px solid rgba(0, 255, 255, 0.03);
+            margin-top: 16px;
         }
 
         body.light .footer {
-            border-top-color: rgba(0, 0, 0, 0.04);
+            border-top-color: rgba(0, 0, 0, 0.03);
             color: #5a6a7a;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 480px) {
-            .glass-card {
-                padding: 20px 16px 16px;
-                border-radius: 28px;
-            }
-            .header h1 {
-                font-size: 1.2rem;
-            }
-            .header .icon {
-                font-size: 2.2rem;
-            }
-            .tool-card {
-                padding: 16px 14px;
-            }
-            .tool-card .emoji {
-                font-size: 2rem;
-            }
-            .btn-offline {
-                padding: 10px 22px;
-                font-size: 0.85rem;
-            }
         }
 
         /* ===== LOADING OVERLAY ===== */
@@ -310,9 +511,9 @@
         }
 
         #loadingOverlay .spinner {
-            width: 48px;
-            height: 48px;
-            border: 4px solid rgba(255, 255, 255, 0.1);
+            width: 44px;
+            height: 44px;
+            border: 4px solid rgba(255, 255, 255, 0.08);
             border-top-color: #8af0ff;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
@@ -326,7 +527,7 @@
 
         #loadingOverlay .load-text {
             color: #d0daff;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
         }
 
@@ -336,6 +537,43 @@
 
         body.light #loadingOverlay .load-text {
             color: #1a1a3e;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .glass-card {
+                padding: 16px 14px 14px;
+                border-radius: 28px;
+            }
+            .header h1 {
+                font-size: 1.1rem;
+            }
+            .header .icon {
+                font-size: 2rem;
+            }
+            .datetime-display {
+                padding: 8px 12px;
+                gap: 10px;
+            }
+            .datetime-item {
+                font-size: 0.75rem;
+            }
+            .datetime-item .value {
+                font-size: 0.8rem;
+            }
+            .service-card .number-item .num {
+                font-size: 1.1rem;
+            }
+            .tool-card {
+                padding: 14px 12px;
+            }
+            .tool-card .emoji {
+                font-size: 1.8rem;
+            }
+            .btn-offline {
+                padding: 8px 20px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -357,27 +595,110 @@
         <div class="header">
             <div class="icon">⚔️</div>
             <h1>مدیریت اسلحه و مهمات · ارتش شیراز</h1>
-            <div class="sub">ابزارهای تمدید جواز و مرخصی</div>
+            <div class="sub">محمد رضا بهروزی · ستوان سوم وظیفه</div>
         </div>
 
-        <!-- Tools Grid -->
+        <!-- ===== DATE & TIME DISPLAY ===== -->
+        <div class="datetime-display" id="datetimeDisplay">
+            <div class="datetime-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>تاریخ:</span>
+                <span class="value" id="jalaliDate">--</span>
+            </div>
+            <div class="datetime-item">
+                <i class="fas fa-clock"></i>
+                <span>ساعت:</span>
+                <span class="value" id="jalaliTime">--</span>
+            </div>
+            <div class="datetime-item">
+                <i class="fas fa-calendar-day"></i>
+                <span>روز هفته:</span>
+                <span class="value" id="weekday">--</span>
+            </div>
+        </div>
+
+        <!-- ===== SERVICE COUNTER ===== -->
+        <div class="service-section">
+
+            <!-- کارت مدت خدمت -->
+            <div class="service-card">
+                <div class="label">
+                    <i class="fas fa-hourglass-start"></i>
+                    مدت خدمت انجام‌شده
+                </div>
+                <div class="numbers">
+                    <div class="number-item">
+                        <span class="num" id="servedMonths">--</span>
+                        <span class="unit">ماه</span>
+                    </div>
+                    <div class="number-item">
+                        <span class="num" id="servedDays">--</span>
+                        <span class="unit">روز</span>
+                    </div>
+                    <div class="number-item">
+                        <span class="num" id="servedHours">--</span>
+                        <span class="unit">ساعت</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- کارت زمان باقی‌مانده -->
+            <div class="service-card">
+                <div class="label">
+                    <i class="fas fa-hourglass-end"></i>
+                    زمان باقی‌مانده تا پایان خدمت
+                </div>
+                <div class="numbers">
+                    <div class="number-item">
+                        <span class="num" id="remainingMonths">--</span>
+                        <span class="unit">ماه</span>
+                    </div>
+                    <div class="number-item">
+                        <span class="num" id="remainingDays">--</span>
+                        <span class="unit">روز</span>
+                    </div>
+                    <div class="number-item">
+                        <span class="num" id="remainingHours">--</span>
+                        <span class="unit">ساعت</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== PROGRESS BAR ===== -->
+        <div class="progress-section">
+            <div class="progress-header">
+                <span>پیشرفت خدمت سربازی</span>
+                <span class="percentage" id="progressPercent">۰٪</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="progress-dates">
+                <span>تاریخ اعزام: ۱۴۰۴/۰۶/۰۱</span>
+                <span>پایان خدمت: ۱۴۰۶/۰۳/۰۲</span>
+            </div>
+        </div>
+
+        <!-- ===== TOOLS GRID ===== -->
         <div class="tools-grid">
 
             <a href="JavazRenewal.html" class="tool-card">
                 <span class="emoji">💰</span>
                 <h3>محاسبه‌گر جریمه تمدید</h3>
-                <p>محاسبه جریمه دیرکرد، هزینه تمدید و هزینه‌های اضافی</p>
+                <p>محاسبه جریمه دیرکرد و هزینه‌های اضافی</p>
             </a>
 
             <a href="مرخصی/مرخصی.html" class="tool-card">
                 <span class="emoji">📋</span>
                 <h3>برگه مرخصی</h3>
-                <p>صدور برگه مرخصی با قابلیت آپلود لوگو و ویرایش اطلاعات</p>
+                <p>صدور برگه مرخصی با آپلود لوگو</p>
             </a>
 
         </div>
 
-        <!-- Offline Download -->
+        <!-- ===== OFFLINE BUTTON ===== -->
         <div class="offline-section">
             <button class="btn-offline" id="offlineBtn">
                 <i class="fas fa-download"></i>
@@ -400,7 +721,195 @@
 
     <script>
         // ================================================================
-        // THEME TOGGLE
+        // 1. تبدیل تاریخ میلادی به شمسی (الگوریتم معروف)
+        // ================================================================
+        function gregorianToJalali(gy, gm, gd) {
+            const g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+            let jy, days;
+            if (gy > 1600) {
+                jy = 979;
+                gy -= 1600;
+            } else {
+                jy = 0;
+                gy -= 621;
+            }
+            const gy2 = (gm > 2) ? gy + 1 : gy;
+            days = 365 * gy + Math.floor((gy2 + 3) / 4) - Math.floor((gy2 + 99) / 100) +
+                Math.floor((gy2 + 399) / 400) - 80 + gd + g_d_m[gm - 1];
+            jy += 33 * Math.floor(days / 12053);
+            days %= 12053;
+            jy += 4 * Math.floor(days / 1461);
+            days %= 1461;
+            let jm, jd;
+            if (days > 365) {
+                jy += Math.floor((days - 1) / 365);
+                days = (days - 1) % 365;
+            }
+            if (days < 186) {
+                jm = 1 + Math.floor(days / 31);
+                jd = 1 + (days % 31);
+            } else {
+                jm = 7 + Math.floor((days - 186) / 30);
+                jd = 1 + ((days - 186) % 30);
+            }
+            return [jy, jm, jd];
+        }
+
+        // ================================================================
+        // 2. تبدیل تاریخ شمسی به میلادی
+        // ================================================================
+        function jalaliToGregorian(jy, jm, jd) {
+            const j_d_m = [0, 31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
+            const j_d_m_leap = [0, 31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 30];
+
+            const leap = (jy % 33 === 1 || jy % 33 === 5 || jy % 33 === 9 ||
+                jy % 33 === 13 || jy % 33 === 17 || jy % 33 === 22 ||
+                jy % 33 === 26 || jy % 33 === 30);
+
+            let days = jd - 1;
+            for (let i = 1; i < jm; i++) {
+                days += leap ? j_d_m_leap[i] : j_d_m[i];
+            }
+
+            // تعداد روزهای سال‌های قبلی شمسی
+            let jy2 = jy - 1;
+            let totalDays = 0;
+            if (jy2 >= 0) {
+                // 979 = 1600 - 621
+                if (jy2 > 979) {
+                    totalDays += (jy2 - 979) * 365 + Math.floor((jy2 - 979 + 1) / 4) -
+                        Math.floor((jy2 - 979 + 1) / 100) + Math.floor((jy2 - 979 + 1) / 400);
+                    totalDays += 79; // تعداد روزهای 979 سال اول
+                } else {
+                    totalDays += jy2 * 365 + Math.floor((jy2 + 1) / 4) -
+                        Math.floor((jy2 + 1) / 100) + Math.floor((jy2 + 1) / 400);
+                }
+            }
+            totalDays += days;
+
+            // 621 = 622 - 1
+            const base = 621 * 365 + Math.floor((621 + 3) / 4) -
+                Math.floor((621 + 99) / 100) + Math.floor((621 + 399) / 400);
+            totalDays += base;
+
+            // محاسبه تاریخ میلادی
+            let gy = 1600,
+                gm = 1,
+                gd = 1;
+            let daysLeft = totalDays;
+
+            // سال
+            let yearDays = 365 + ((gy % 4 === 0 && gy % 100 !== 0) || (gy % 400 === 0) ? 1 : 0);
+            while (daysLeft >= yearDays) {
+                daysLeft -= yearDays;
+                gy++;
+                yearDays = 365 + ((gy % 4 === 0 && gy % 100 !== 0) || (gy % 400 === 0) ? 1 : 0);
+            }
+
+            // ماه
+            const monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            for (let i = 0; i < 12; i++) {
+                const daysInMonth = (i === 1 && ((gy % 4 === 0 && gy % 100 !== 0) || (gy % 400 === 0))) ? 29 : monthDays[i];
+                if (daysLeft < daysInMonth) {
+                    gm = i + 1;
+                    gd = daysLeft + 1;
+                    break;
+                }
+                daysLeft -= daysInMonth;
+            }
+
+            return [gy, gm, gd];
+        }
+
+        // ================================================================
+        // 3. نام روز هفته
+        // ================================================================
+        function getWeekday(gy, gm, gd) {
+            const weekdays = ['یک‌شنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنج‌شنبه', 'جمعه', 'شنبه'];
+            const d = new Date(gy, gm - 1, gd);
+            return weekdays[d.getDay()];
+        }
+
+        // ================================================================
+        // 4. تفاوت دو تاریخ شمسی (به روز، ساعت، ماه)
+        // ================================================================
+        function diffJalali(startJY, startJM, startJD, endJY, endJM, endJD) {
+            // تبدیل به میلادی
+            const [gy1, gm1, gd1] = jalaliToGregorian(startJY, startJM, startJD);
+            const [gy2, gm2, gd2] = jalaliToGregorian(endJY, endJM, endJD);
+
+            const d1 = new Date(gy1, gm1 - 1, gd1);
+            const d2 = new Date(gy2, gm2 - 1, gd2);
+
+            const diffMs = d2 - d1;
+            if (diffMs < 0) return { months: 0, days: 0, hours: 0 };
+
+            const totalHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const totalDays = Math.floor(totalHours / 24);
+            const hours = totalHours % 24;
+
+            // محاسبه ماه‌ها (تقریبی با میانگین ۳۰ روز)
+            const months = Math.floor(totalDays / 30);
+            const days = totalDays % 30;
+
+            return { months, days, hours };
+        }
+
+        // ================================================================
+        // 5. آپدیت صفحه
+        // ================================================================
+        const START_DATE = { year: 1404, month: 6, day: 1 }; // 1404/06/01
+        const END_DATE = { year: 1406, month: 3, day: 2 }; // 1406/03/02
+
+        function updatePage() {
+            const now = new Date();
+            const gy = now.getFullYear();
+            const gm = now.getMonth() + 1;
+            const gd = now.getDate();
+
+            // تاریخ شمسی امروز
+            const [jy, jm, jd] = gregorianToJalali(gy, gm, gd);
+            const weekday = getWeekday(gy, gm, gd);
+
+            // ساعت
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            // نمایش تاریخ و ساعت
+            document.getElementById('jalaliDate').textContent = `${jd} ${['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'][jm-1]} ${jy}`;
+            document.getElementById('jalaliTime').textContent = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('weekday').textContent = weekday;
+
+            // محاسبه مدت خدمت انجام‌شده
+            const served = diffJalali(START_DATE.year, START_DATE.month, START_DATE.day, jy, jm, jd);
+            document.getElementById('servedMonths').textContent = served.months;
+            document.getElementById('servedDays').textContent = served.days;
+            document.getElementById('servedHours').textContent = served.hours;
+
+            // محاسبه زمان باقی‌مانده تا پایان خدمت
+            const remaining = diffJalali(jy, jm, jd, END_DATE.year, END_DATE.month, END_DATE.day);
+            document.getElementById('remainingMonths').textContent = remaining.months;
+            document.getElementById('remainingDays').textContent = remaining.days;
+            document.getElementById('remainingHours').textContent = remaining.hours;
+
+            // محاسبه درصد پیشرفت
+            const totalDiff = diffJalali(START_DATE.year, START_DATE.month, START_DATE.day, END_DATE.year, END_DATE.month,
+            END_DATE.day);
+            const totalDays = totalDiff.months * 30 + totalDiff.days;
+            const servedDays = served.months * 30 + served.days;
+
+            let percent = 0;
+            if (totalDays > 0) {
+                percent = Math.min(100, Math.round((servedDays / totalDays) * 100));
+            }
+
+            document.getElementById('progressPercent').textContent = percent + '%';
+            document.getElementById('progressBar').style.width = percent + '%';
+        }
+
+        // ================================================================
+        // 6. THEME TOGGLE
         // ================================================================
         document.getElementById('themeToggle').addEventListener('click', function() {
             document.body.classList.toggle('light');
@@ -408,14 +917,13 @@
         });
 
         // ================================================================
-        // OFFLINE DOWNLOAD — با استفاده از zip.js
+        // 7. OFFLINE DOWNLOAD (zip.js)
         // ================================================================
         document.getElementById('offlineBtn').addEventListener('click', async function() {
             const overlay = document.getElementById('loadingOverlay');
             overlay.classList.add('show');
 
             try {
-                // لیست فایل‌هایی که باید در ZIP قرار بگیرند
                 const filesToZip = [
                     { path: 'JavazRenewal.html', url: 'JavazRenewal.html' },
                     { path: 'مرخصی/مرخصی.html', url: 'مرخصی/مرخصی.html' },
@@ -423,10 +931,9 @@
                         url: 'مرخصی/Seal_of_the_Islamic_Republic_of_Iran_Army.svg.webp' },
                     { path: 'مرخصی/images (1).png', url: 'مرخصی/images (1).png' },
                     { path: 'مرخصی/مرخصی.docx', url: 'مرخصی/مرخصی.docx' },
-                    { path: 'index.html', url: window.location.href.split('?')[0] }, // همین صفحه
+                    { path: 'index.html', url: window.location.href.split('?')[0] },
                 ];
 
-                // ایجاد یک blob برای هر فایل
                 const zip = new zip.ZipWriter(new zip.BlobWriter('application/zip'));
 
                 for (const file of filesToZip) {
@@ -443,12 +950,10 @@
                     }
                 }
 
-                // اضافه کردن یک فایل Readme ساده برای آفلاین
                 const readmeContent =
-                    `# ابزارهای مدیریت اسلحه و مهمات · ارتش شیراز\n\nاین بسته شامل:\n- JavazRenewal.html : محاسبه‌گر جریمه تمدید\n- مرخصی/مرخصی.html : برگه مرخصی\n\nبرای استفاده، فایل index.html را در مرورگر باز کنید.\n\nتاریخ تهیه: ${new Date().toLocaleDateString('fa-IR')}`;
+                    `# ابزارهای مدیریت اسلحه و مهمات · ارتش شیراز\n\nاین بسته شامل:\n- JavazRenewal.html : محاسبه‌گر جریمه تمدید\n- مرخصی/مرخصی.html : برگه مرخصی\n\nتاریخ اعزام: ۱۴۰۴/۰۶/۰۱\nپایان خدمت: ۱۴۰۶/۰۳/۰۲\n\nبرای استفاده، فایل index.html را در مرورگر باز کنید.\n\nتاریخ تهیه: ${new Date().toLocaleDateString('fa-IR')}`;
                 await zip.add('README_OFFLINE.txt', new zip.TextReader(readmeContent));
 
-                // دانلود ZIP
                 const zipBlob = await zip.close();
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(zipBlob);
@@ -465,6 +970,12 @@
                 overlay.classList.remove('show');
             }
         });
+
+        // ================================================================
+        // 8. اجرای اولیه و آپدیت هر ثانیه
+        // ================================================================
+        updatePage();
+        setInterval(updatePage, 1000);
     </script>
 
 </body>
